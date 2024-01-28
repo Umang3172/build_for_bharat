@@ -36,6 +36,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
+  flutter_chat_ui: ^1.6.10
+  file_picker: ^6.1.1
+  image_picker: ^1.0.7
+  open_filex: ^4.3.4
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +67,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/messages.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:
