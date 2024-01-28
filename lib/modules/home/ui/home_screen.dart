@@ -14,10 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil(context);
-    return Scaffold(
-        body: BasicLayoutWidget(
-            leftWidget: const HomeScreenLeftWidget(),
-            rightWidget: Container()));
+    return BasicLayoutWidget(
+        leftWidget: const HomeScreenLeftWidget(), rightWidget: Container());
   }
 }

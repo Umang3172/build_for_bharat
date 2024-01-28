@@ -10,8 +10,16 @@ class Styles {
   static final largeHeaderText = GoogleFonts.lato(
       color: AppColors.accenColor, fontWeight: FontWeight.bold, fontSize: 34);
 
-  static final tsw200m = GoogleFonts.lato(
-      color: AppColors.accenColor, fontWeight: FontWeight.w200, fontSize: 18);
+  static final tsw300m = GoogleFonts.lato(
+      color: AppColors.accenColor, fontWeight: FontWeight.w300, fontSize: 18);
   static final tsw300s = GoogleFonts.lato(
       color: AppColors.accenColor, fontWeight: FontWeight.w300, fontSize: 16);
+  static final tsw400xxs = GoogleFonts.lato(
+      color: AppColors.accenColor, fontWeight: FontWeight.w400, fontSize: 12);
+  static final tsw700xxs = GoogleFonts.lato(
+      color: AppColors.accenColor, fontWeight: FontWeight.w700, fontSize: 12);
+  static final ts500l = GoogleFonts.lato(
+      color: AppColors.primaryTextColor,
+      fontWeight: FontWeight.w500,
+      fontSize: 24);
 }

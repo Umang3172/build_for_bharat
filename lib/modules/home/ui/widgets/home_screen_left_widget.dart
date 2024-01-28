@@ -1,4 +1,6 @@
+import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/expanded_categories_widget.dart';
+import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/right_side_appbar_menu.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
@@ -16,8 +18,40 @@ class HomeScreenLeftWidget extends StatefulWidget {
 class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [HeaderStackWidget()],
+    return Column(
+      children: [
+        const HeaderStackWidget(),
+        SizedBox(
+          height: Gap.xxshg,
+        ),
+        Text('New Arrivals', style: Styles.ts500l),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          'Our new arrivals are built to withstand your activities while keeping you looking your best!',
+          style: Styles.tsw300s.apply(color: AppColors.secondaryTextColor),
+        ),
+        SizedBox(
+          height: Gap.xxxshg,
+        ),
+        Container(
+          padding: const EdgeInsets.all(12),
+          child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: ProductModel.productList.length,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: ScreenUtil.sh * 0.03,
+                  mainAxisSpacing: ScreenUtil.sh * 0.04,
+                  childAspectRatio: 0.8),
+              itemBuilder: (context, index) {
+                return ItemGridTile(
+                    productDetailModel: ProductModel.productList[index]);
+              }),
+        )
+      ],
     );
   }
 }
@@ -76,7 +110,7 @@ class HeaderStackWidget extends StatelessWidget {
                 ),
                 Text(
                   'Your fashion now at the comfort of your home',
-                  style: Styles.tsw200m,
+                  style: Styles.tsw300s,
                 )
               ],
             )
