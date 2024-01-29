@@ -1,0 +1,1500 @@
+[
+    {
+        "image_url": "https://example.com/tshirt1_image.jpg",
+        "name": "Casual V-Neck Tee",
+        "brand_name": "Max",
+        "color": "Blue",
+        "price": 400,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Comfortable Fit",
+                "details": "Perfect fit and very comfortable.",
+                "rating": 4.2
+            },
+            {
+                "title": "Nice Quality",
+                "details": "The fabric is good quality.",
+                "rating": 3.8
+            },
+            {
+                "title": "Great Color",
+                "details": "The blue color is vibrant and attractive.",
+                "rating": 4.5
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Overall, a good purchase.",
+                "rating": 4.0
+            },
+            {
+                "title": "Not What I Expected",
+                "details": "The fit was not as expected.",
+                "rating": 3.0
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 3.9
+    },
+    {
+        "image_url": "https://example.com/tshirt1_image.jpg",
+        "name": "Casual V-Neck Tee",
+        "brand_name": "Max",
+        "color": "Blue",
+        "price": 400,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Comfortable Fit",
+                "details": "Perfect fit and very comfortable.",
+                "rating": 4.2
+            },
+            {
+                "title": "Nice Quality",
+                "details": "The fabric is good quality.",
+                "rating": 3.8
+            },
+            {
+                "title": "Great Color",
+                "details": "The blue color is vibrant and attractive.",
+                "rating": 4.5
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Overall, a good purchase.",
+                "rating": 4.0
+            },
+            {
+                "title": "Not What I Expected",
+                "details": "The fit was not as expected.",
+                "rating": 3.0
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Party",
+        "weather_suitable": "Hot",
+        "average_review": 3.9
+    },
+    {
+        "image_url": "https://example.com/tshirt2_image.jpg",
+        "name": "Graphic Print Crew Neck Tee",
+        "brand_name": "H&M",
+        "color": "Black",
+        "price": 550,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Awesome Print",
+                "details": "The graphic print is awesome and unique.",
+                "rating": 4.7
+            },
+            {
+                "title": "Comfortable Fabric",
+                "details": "Soft and comfortable to wear for long hours.",
+                "rating": 4.5
+            },
+            {
+                "title": "Perfect Fit",
+                "details": "Fits true to size, not too tight or too loose.",
+                "rating": 4.8
+            },
+            {
+                "title": "Great Quality",
+                "details": "High-quality fabric that doesn't fade after washing.",
+                "rating": 4.6
+            },
+            {
+                "title": "Value for Money",
+                "details": "Reasonably priced for the quality you get.",
+                "rating": 4.3
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.58
+    },
+    {
+        "image_url": "https://example.com/tshirt3_image.jpg",
+        "name": "Striped Polo Neck T-Shirt",
+        "brand_name": "Lee",
+        "color": "Green",
+        "price": 650,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Classic Design",
+                "details": "The striped design gives it a classic look.",
+                "rating": 4.2
+            },
+            {
+                "title": "Comfortable Polo Neck",
+                "details": "Polo neck is comfortable without being too tight.",
+                "rating": 4.0
+            },
+            {
+                "title": "Good Value",
+                "details": "Well-priced for the quality and design.",
+                "rating": 4.5
+            },
+            {
+                "title": "True to Size",
+                "details": "Sizing is accurate, fits well.",
+                "rating": 4.3
+            },
+            {
+                "title": "Casual Elegance",
+                "details": "Perfect for a casual yet elegant look.",
+                "rating": 4.4
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Office",
+        "weather_suitable": "Hot",
+        "average_review": 4.28
+    },
+    {
+        "image_url": "https://example.com/tshirt4_image.jpg",
+        "name": "Printed Round Neck Tee",
+        "brand_name": "Allen Solly",
+        "color": "Red",
+        "price": 480,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Vibrant Print",
+                "details": "The print is vibrant and eye-catching.",
+                "rating": 4.6
+            },
+            {
+                "title": "Soft Fabric",
+                "details": "Fabric feels soft and comfortable against the skin.",
+                "rating": 4.7
+            },
+            {
+                "title": "Unique Design",
+                "details": "Design is unique and stands out.",
+                "rating": 4.5
+            },
+            {
+                "title": "Happy Purchase",
+                "details": "Satisfied with the purchase, great value for money.",
+                "rating": 4.4
+            },
+            {
+                "title": "Runs Large",
+                "details": "Consider sizing down, as it runs a bit large.",
+                "rating": 3.8
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.4
+    },
+    {
+        "image_url": "https://example.com/tshirt5_image.jpg",
+        "name": "Athletic Fit Performance Tee",
+        "brand_name": "HRX",
+        "color": "Grey",
+        "price": 600,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Perfect for Workouts",
+                "details": "Great moisture-wicking fabric for workouts.",
+                "rating": 4.8
+            },
+            {
+                "title": "Athletic Fit",
+                "details": "Fit is perfect for an athletic build.",
+                "rating": 4.6
+            },
+            {
+                "title": "Durable Material",
+                "details": "Material feels durable and long-lasting.",
+                "rating": 4.5
+            },
+            {
+                "title": "Comfortable All Day",
+                "details": "Can wear it all day without any discomfort.",
+                "rating": 4.7
+            },
+            {
+                "title": "Highly Recommend",
+                "details": "Highly recommend for active individuals.",
+                "rating": 4.9
+            }
+        ],
+        "cloth_type": "Polyester",
+        "category": "tshirt",
+        "occasion": "Party",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/tshirt6_image.jpg",
+        "name": "Henley Neck Vintage Tee",
+        "brand_name": "H&M",
+        "color": "Burgundy",
+        "price": 520,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Vintage Vibes",
+                "details": "Love the vintage look and feel.",
+                "rating": 4.3
+            },
+            {
+                "title": "Henley Neck Detail",
+                "details": "Henley neck adds a stylish touch.",
+                "rating": 4.1
+            },
+            {
+                "title": "Quality Material",
+                "details": "Material is of high quality and doesn't shrink.",
+                "rating": 4.5
+            },
+            {
+                "title": "Sizing is Accurate",
+                "details": "Accurate sizing, fits well.",
+                "rating": 4.2
+            },
+            {
+                "title": "Unique Color",
+                "details": "Burgundy color is unique and attractive.",
+                "rating": 4.4
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Office",
+        "weather_suitable": "Hot",
+        "average_review": 4.3
+    },
+    {
+        "image_url": "https://example.com/tshirt7_image.jpg",
+        "name": "Pocket Detail Basic Tee",
+        "brand_name": "Max",
+        "color": "Navy Blue",
+        "price": 420,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Simple Yet Stylish",
+                "details": "Love the simplicity with the added pocket detail.",
+                "rating": 4.0
+            },
+            {
+                "title": "Comfortable Fabric",
+                "details": "Soft and comfortable fabric.",
+                "rating": 4.2
+            },
+            {
+                "title": "Good Value",
+                "details": "Affordable and good value for money.",
+                "rating": 4.3
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the purchase.",
+                "rating": 4.1
+            },
+            {
+                "title": "Runs Small",
+                "details": "Consider sizing up, as it runs a bit small.",
+                "rating": 3.9
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.1
+    },
+    {
+        "image_url": "https://example.com/tshirt8_image.jpg",
+        "name": "Woolen Thermal Long Sleeve Tee",
+        "brand_name": "H&M",
+        "color": "Grey",
+        "price": 800,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Excellent Warmth",
+                "details": "Keeps you warm in cold weather.",
+                "rating": 4.6
+            },
+            {
+                "title": "Soft Woolen Fabric",
+                "details": "Soft and comfortable woolen fabric.",
+                "rating": 4.7
+            },
+            {
+                "title": "Perfect Winter Tee",
+                "details": "Ideal for the winter season.",
+                "rating": 4.8
+            },
+            {
+                "title": "Highly Recommended",
+                "details": "Highly recommended for cold climates.",
+                "rating": 4.9
+            },
+            {
+                "title": "Stylish and Warm",
+                "details": "Stylish design while keeping you warm.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "tshirt",
+        "occasion": "Office",
+        "weather_suitable": "Cold",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/tshirt9_image.jpg",
+        "name": "Cozy Wool Blend Henley",
+        "brand_name": "HRX",
+        "color": "Navy Blue",
+        "price": 950,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Cozy and Stylish",
+                "details": "Perfect combination of coziness and style.",
+                "rating": 4.5
+            },
+            {
+                "title": "Excellent Winter Wear",
+                "details": "Great for the winter season.",
+                "rating": 4.7
+            },
+            {
+                "title": "Soft Wool Blend",
+                "details": "Soft and comfortable wool blend fabric.",
+                "rating": 4.8
+            },
+            {
+                "title": "Fits Well",
+                "details": "Fits well and true to size.",
+                "rating": 4.6
+            },
+            {
+                "title": "Warm and Fashionable",
+                "details": "Keeps you warm and looks fashionable.",
+                "rating": 4.9
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Cold",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/tshirt10_image.jpg",
+        "name": "Merino Wool Crew Neck Tee",
+        "brand_name": "Allen Solly",
+        "color": "Burgundy",
+        "price": 1100,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Luxurious Fabric",
+                "details": "Merino wool feels luxurious and soft.",
+                "rating": 4.8
+            },
+            {
+                "title": "Perfect for Winter",
+                "details": "Ideal for winter weather, keeps you warm.",
+                "rating": 4.9
+            },
+            {
+                "title": "High-Quality Tee",
+                "details": "High-quality and well-crafted tee.",
+                "rating": 4.7
+            },
+            {
+                "title": "True to Size",
+                "details": "Accurate sizing, fits comfortably.",
+                "rating": 4.6
+            },
+            {
+                "title": "Worth the Price",
+                "details": "Worth the price for the premium quality.",
+                "rating": 4.8
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "tshirt",
+        "occasion": "Party",
+        "weather_suitable": "Cold",
+        "average_review": 4.76
+    },
+    {
+        "image_url": "https://example.com/tshirt11_image.jpg",
+        "name": "Woolen Mock Neck Pullover",
+        "brand_name": "Max",
+        "color": "Grey",
+        "price": 1200,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Mock Neck Elegance",
+                "details": "Mock neck adds an elegant touch.",
+                "rating": 4.6
+            },
+            {
+                "title": "Warm and Stylish",
+                "details": "Keeps you warm while looking stylish.",
+                "rating": 4.7
+            },
+            {
+                "title": "Good Fit",
+                "details": "Fits well and provides ample warmth.",
+                "rating": 4.5
+            },
+            {
+                "title": "Winter Essential",
+                "details": "A must-have for the winter wardrobe.",
+                "rating": 4.8
+            },
+            {
+                "title": "Cozy Comfort",
+                "details": "Cozy and comfortable for cold days.",
+                "rating": 4.6
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Cold",
+        "average_review": 4.64
+    },
+    {
+        "image_url": "https://example.com/tshirt12_image.jpg",
+        "name": "Woolen Cable Knit Sweater",
+        "brand_name": "Lee",
+        "color": "White",
+        "price": 1300,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Classic Cable Knit",
+                "details": "Classic cable knit design is timeless.",
+                "rating": 4.7
+            },
+            {
+                "title": "Excellent Winter Wear",
+                "details": "Keeps you warm in chilly weather.",
+                "rating": 4.8
+            },
+            {
+                "title": "Soft and Cozy",
+                "details": "Soft and cozy material for maximum comfort.",
+                "rating": 4.9
+            },
+            {
+                "title": "Stylish and Warm",
+                "details": "Perfect combination of style and warmth.",
+                "rating": 4.6
+            },
+            {
+                "title": "Premium Quality",
+                "details": "Premium quality sweater worth the investment.",
+                "rating": 4.7
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "tshirt",
+        "occasion": "Casual",
+        "weather_suitable": "Cold",
+        "average_review": 4.74
+    },
+    {
+        "image_url": "https://example.com/shirt2_image.jpg",
+        "name": "Slim-Fit Checkered Shirt",
+        "brand_name": "Max",
+        "color": "Yellow",
+        "price": 900,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Sharp and Stylish",
+                "details": "The checkered pattern looks sharp and stylish.",
+                "rating": 4.5
+            },
+            {
+                "title": "Perfect Fit",
+                "details": "Slim fit provides a modern and flattering look.",
+                "rating": 4.7
+            },
+            {
+                "title": "Quality Fabric",
+                "details": "High-quality fabric that feels comfortable.",
+                "rating": 4.6
+            },
+            {
+                "title": "Versatile Shirt",
+                "details": "Versatile for both casual and semi-formal occasions.",
+                "rating": 4.4
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the purchase overall.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/shirt3_image.jpg",
+        "name": "Classic White Button-Down",
+        "brand_name": "HRX",
+        "color": "White",
+        "price": 750,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Timeless Design",
+                "details": "The classic white button-down design is timeless.",
+                "rating": 4.8
+            },
+            {
+                "title": "Comfortable Fit",
+                "details": "Provides a comfortable and relaxed fit.",
+                "rating": 4.7
+            },
+            {
+                "title": "Wardrobe Essential",
+                "details": "A must-have essential for every wardrobe.",
+                "rating": 4.9
+            },
+            {
+                "title": "Professional Look",
+                "details": "Perfect for a professional and polished look.",
+                "rating": 4.6
+            },
+            {
+                "title": "High-Quality Shirt",
+                "details": "High-quality fabric and craftsmanship.",
+                "rating": 4.7
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Party",
+        "weather_suitable": "Hot",
+        "average_review": 4.74
+    },
+    {
+        "image_url": "https://example.com/shirt4_image.jpg",
+        "name": "Striped Linen Casual Shirt",
+        "brand_name": "H&M",
+        "color": "White",
+        "price": 580,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Cool and Breathable",
+                "details": "Linen fabric feels cool and breathable.",
+                "rating": 4.6
+            },
+            {
+                "title": "Casual Elegance",
+                "details": "Perfect for a casual yet elegant look.",
+                "rating": 4.5
+            },
+            {
+                "title": "Comfortable for Summers",
+                "details": "Ideal for hot summer days.",
+                "rating": 4.7
+            },
+            {
+                "title": "Stylish Stripes",
+                "details": "The striped pattern adds a stylish touch.",
+                "rating": 4.4
+            },
+            {
+                "title": "Great Value",
+                "details": "Good quality at an affordable price.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Party",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/shirt5_image.jpg",
+        "name": "Formal Slim-Fit Dress Shirt",
+        "brand_name": "Allen Solly",
+        "color": "Light Blue",
+        "price": 950,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Perfect for Office",
+                "details": "Ideal for a formal office setting.",
+                "rating": 4.7
+            },
+            {
+                "title": "Slim-Fit Appeal",
+                "details": "Slim fit provides a modern and tailored appearance.",
+                "rating": 4.8
+            },
+            {
+                "title": "Quality Material",
+                "details": "High-quality fabric that feels luxurious.",
+                "rating": 4.9
+            },
+            {
+                "title": "Professional Look",
+                "details": "Creates a professional and polished look.",
+                "rating": 4.6
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and quality.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Office",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/shirt6_image.jpg",
+        "name": "Woolen Plaid Flannel Shirt",
+        "brand_name": "Max",
+        "color": "Red",
+        "price": 1200,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Warm and Cozy",
+                "details": "Perfect for chilly days, keeps you warm.",
+                "rating": 4.8
+            },
+            {
+                "title": "Stylish Plaid Design",
+                "details": "The plaid design adds a stylish touch.",
+                "rating": 4.7
+            },
+            {
+                "title": "Comfortable Woolen Fabric",
+                "details": "Soft and comfortable woolen fabric.",
+                "rating": 4.9
+            },
+            {
+                "title": "Versatile Shirt",
+                "details": "Versatile for both casual and semi-formal occasions.",
+                "rating": 4.6
+            },
+            {
+                "title": "Premium Quality",
+                "details": "Premium quality flannel shirt.",
+                "rating": 4.7
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "shirt",
+        "occasion": "Casual",
+        "weather_suitable": "Cold",
+        "average_review": 4.74
+    },
+    {
+        "image_url": "https://example.com/shirt7_image.jpg",
+        "name": "Casual Denim Button-Up",
+        "brand_name": "HRX",
+        "color": "Blue",
+        "price": 700,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Classic Denim Look",
+                "details": "Provides a classic and versatile denim look.",
+                "rating": 4.6
+            },
+            {
+                "title": "Casual Comfort",
+                "details": "Comfortable for everyday casual wear.",
+                "rating": 4.5
+            },
+            {
+                "title": "Sturdy Material",
+                "details": "Sturdy denim material that lasts.",
+                "rating": 4.7
+            },
+            {
+                "title": "Well-Fitted",
+                "details": "Fits well and true to size.",
+                "rating": 4.4
+            },
+            {
+                "title": "Great Everyday Shirt",
+                "details": "Perfect for everyday casual occasions.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/shirt8_image.jpg",
+        "name": "Floral Print Short Sleeve Shirt",
+        "brand_name": "H&M",
+        "color": "White",
+        "price": 550,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Vibrant Floral Design",
+                "details": "The floral print adds a vibrant touch.",
+                "rating": 4.7
+            },
+            {
+                "title": "Cool and Lightweight",
+                "details": "Perfect for hot weather, cool and lightweight.",
+                "rating": 4.5
+            },
+            {
+                "title": "Stylish Summer Wear",
+                "details": "Ideal for stylish summer wear.",
+                "rating": 4.8
+            },
+            {
+                "title": "Good Quality Shirt",
+                "details": "Fabric is of good quality and durable.",
+                "rating": 4.6
+            },
+            {
+                "title": "Happy Customer",
+                "details": "Happy with the purchase overall.",
+                "rating": 4.4
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.6
+    },
+    {
+        "image_url": "https://example.com/shirt9_image.jpg",
+        "name": "Linen Blend Striped Shirt",
+        "brand_name": "Max",
+        "color": "Navy Blue",
+        "price": 620,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Breathable Linen Blend",
+                "details": "Linen blend is breathable and comfortable.",
+                "rating": 4.6
+            },
+            {
+                "title": "Smart Striped Design",
+                "details": "The striped design adds a smart touch.",
+                "rating": 4.5
+            },
+            {
+                "title": "Versatile Shirt",
+                "details": "Versatile for both casual and semi-formal occasions.",
+                "rating": 4.7
+            },
+            {
+                "title": "Comfortable Fit",
+                "details": "Fits comfortably and true to size.",
+                "rating": 4.4
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the quality and style.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Polyster",
+        "category": "shirt",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/shirt10_image.jpg",
+        "name": "Formal Pinstripe Dress Shirt",
+        "brand_name": "Allen Solly",
+        "color": "White",
+        "price": 920,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Sharp and Formal",
+                "details": "Perfect for a sharp and formal look.",
+                "rating": 4.7
+            },
+            {
+                "title": "Classic Pinstripe Design",
+                "details": "Classic design for a timeless appeal.",
+                "rating": 4.8
+            },
+            {
+                "title": "High-Quality Fabric",
+                "details": "Fabric is of high quality and feels luxurious.",
+                "rating": 4.9
+            },
+            {
+                "title": "Professional Appearance",
+                "details": "Creates a professional and polished appearance.",
+                "rating": 4.6
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and overall quality.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "shirt",
+        "occasion": "Office",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/shirt11_image.jpg",
+        "name": "Woolen Tweed Formal Shirt",
+        "brand_name": "HRX",
+        "color": "Grey",
+        "price": 1100,
+        "sizes_available": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Elegant Tweed Fabric",
+                "details": "Elegant tweed fabric for a formal look.",
+                "rating": 4.8
+            },
+            {
+                "title": "Perfect for Winter",
+                "details": "Ideal for the winter season, keeps you warm.",
+                "rating": 4.9
+            },
+            {
+                "title": "Stylish Formal Wear",
+                "details": "Stylish choice for formal occasions.",
+                "rating": 4.7
+            },
+            {
+                "title": "Well-Fitted",
+                "details": "Fits well and provides a tailored appearance.",
+                "rating": 4.6
+            },
+            {
+                "title": "Premium Quality",
+                "details": "Premium quality woolen shirt.",
+                "rating": 4.8
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "shirt",
+        "occasion": "Office",
+        "weather_suitable": "Cold",
+        "average_review": 4.76
+    },
+    {
+        "image_url": "https://example.com/pant2_image.jpg",
+        "name": "Slim-Fit Chino Trousers",
+        "brand_name": "Max",
+        "color": "Grey",
+        "price": 1000,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Modern and Stylish",
+                "details": "Slim fit provides a modern and stylish look.",
+                "rating": 4.5
+            },
+            {
+                "title": "Versatile Chinos",
+                "details": "Versatile for both casual and semi-formal occasions.",
+                "rating": 4.7
+            },
+            {
+                "title": "Comfortable Wear",
+                "details": "Comfortable for all-day wear.",
+                "rating": 4.6
+            },
+            {
+                "title": "High-Quality Material",
+                "details": "High-quality chino fabric that lasts.",
+                "rating": 4.4
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and quality.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "pant",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/pant3_image.jpg",
+        "name": "Formal Pleated Dress Pants",
+        "brand_name": "HRX",
+        "color": "Black",
+        "price": 1200,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Sharp and Formal",
+                "details": "Perfect for a sharp and formal look.",
+                "rating": 4.7
+            },
+            {
+                "title": "Pleated Design",
+                "details": "Pleated design adds a classic touch.",
+                "rating": 4.8
+            },
+            {
+                "title": "High-Quality Fabric",
+                "details": "Fabric is of high quality and feels luxurious.",
+                "rating": 4.9
+            },
+            {
+                "title": "Professional Appearance",
+                "details": "Creates a professional and polished appearance.",
+                "rating": 4.6
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and overall quality.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Polyester",
+        "category": "pant",
+        "occasion": "Office",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/pant4_image.jpg",
+        "name": "Casual Cargo Joggers",
+        "brand_name": "H&M",
+        "color": "Olive Green",
+        "price": 850,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Stylish Cargo Design",
+                "details": "Cargo style adds a stylish and functional touch.",
+                "rating": 4.6
+            },
+            {
+                "title": "Comfortable Joggers",
+                "details": "Jogger style provides a comfortable fit.",
+                "rating": 4.5
+            },
+            {
+                "title": "Versatile Casual Wear",
+                "details": "Versatile for various casual occasions.",
+                "rating": 4.7
+            },
+            {
+                "title": "Quality Material",
+                "details": "Fabric is of good quality and durable.",
+                "rating": 4.4
+            },
+            {
+                "title": "Happy Customer",
+                "details": "Happy with the purchase overall.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "pant",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/pant5_image.jpg",
+        "name": "Classic Fit Woolen Trousers",
+        "brand_name": "Allen Solly",
+        "color": "Grey",
+        "price": 1500,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Warm and Stylish",
+                "details": "Perfect for chilly days, keeps you warm.",
+                "rating": 4.8
+            },
+            {
+                "title": "Classic Fit",
+                "details": "Provides a classic and timeless fit.",
+                "rating": 4.7
+            },
+            {
+                "title": "Comfortable Woolen Fabric",
+                "details": "Soft and comfortable woolen fabric.",
+                "rating": 4.9
+            },
+            {
+                "title": "Versatile Formal Wear",
+                "details": "Versatile for formal occasions.",
+                "rating": 4.6
+            },
+            {
+                "title": "Premium Quality",
+                "details": "Premium quality woolen trousers.",
+                "rating": 4.7
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "pant",
+        "occasion": "Formal",
+        "weather_suitable": "Cold",
+        "average_review": 4.74
+    },
+    {
+        "image_url": "https://example.com/pant6_image.jpg",
+        "name": "Stretchable Slim-Fit Jeans",
+        "brand_name": "Max",
+        "color": "Dark Blue",
+        "price": 1100,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Comfortable Stretch",
+                "details": "Stretchable fabric for maximum comfort.",
+                "rating": 4.7
+            },
+            {
+                "title": "Slim-Fit Style",
+                "details": "Slim fit provides a modern and flattering look.",
+                "rating": 4.8
+            },
+            {
+                "title": "Versatile Casual Wear",
+                "details": "Versatile for various casual occasions.",
+                "rating": 4.9
+            },
+            {
+                "title": "Quality Denim",
+                "details": "High-quality denim that doesn't lose shape.",
+                "rating": 4.6
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and durability.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "pant",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/pant7_image.jpg",
+        "name": "Cargo Slim-Fit Camo Pants",
+        "brand_name": "HRX",
+        "color": "White",
+        "price": 950,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Stylish Camo Design",
+                "details": "Camo pattern adds a stylish and rugged look.",
+                "rating": 4.6
+            },
+            {
+                "title": "Slim-Fit Appeal",
+                "details": "Slim fit provides a modern and tailored appearance.",
+                "rating": 4.5
+            },
+            {
+                "title": "Functional Cargo Pockets",
+                "details": "Cargo pockets for added functionality.",
+                "rating": 4.7
+            },
+            {
+                "title": "Quality Material",
+                "details": "Fabric is of good quality and durable.",
+                "rating": 4.4
+            },
+            {
+                "title": "Happy Customer",
+                "details": "Happy with the purchase overall.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "pant",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/pant8_image.jpg",
+        "name": "Formal Flat-Front Dress Trousers",
+        "brand_name": "H&M",
+        "color": "Navy Blue",
+        "price": 1300,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Sharp and Formal",
+                "details": "Perfect for a sharp and formal look.",
+                "rating": 4.7
+            },
+            {
+                "title": "Flat-Front Design",
+                "details": "Flat-front design for a sleek appearance.",
+                "rating": 4.8
+            },
+            {
+                "title": "High-Quality Fabric",
+                "details": "Fabric is of high quality and feels luxurious.",
+                "rating": 4.9
+            },
+            {
+                "title": "Professional Appearance",
+                "details": "Creates a professional and polished appearance.",
+                "rating": 4.6
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and overall quality.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Polyester",
+        "category": "pant",
+        "occasion": "Office",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    },
+    {
+        "image_url": "https://example.com/pant9_image.jpg",
+        "name": "Casual Cotton Drawstring Pants",
+        "brand_name": "Max",
+        "color": "Beige",
+        "price": 800,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Cool and Breathable",
+                "details": "Linen fabric feels cool and breathable.",
+                "rating": 4.6
+            },
+            {
+                "title": "Drawstring Comfort",
+                "details": "Drawstring for a comfortable and adjustable fit.",
+                "rating": 4.5
+            },
+            {
+                "title": "Versatile Casual Wear",
+                "details": "Versatile for various casual occasions.",
+                "rating": 4.7
+            },
+            {
+                "title": "Comfortable Fit",
+                "details": "Fits comfortably and true to size.",
+                "rating": 4.4
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the quality and style.",
+                "rating": 4.2
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "pant",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.48
+    },
+    {
+        "image_url": "https://example.com/pant10_image.jpg",
+        "name": "Woolen Pleated Front Formal Pants",
+        "brand_name": "Allen Solly",
+        "color": "Charcoal Grey",
+        "price": 1400,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Elegant Pleated Design",
+                "details": "Pleated design adds an elegant touch.",
+                "rating": 4.8
+            },
+            {
+                "title": "Perfect for Winter",
+                "details": "Ideal for the winter season, keeps you warm.",
+                "rating": 4.9
+            },
+            {
+                "title": "Stylish Formal Wear",
+                "details": "Stylish choice for formal occasions.",
+                "rating": 4.7
+            },
+            {
+                "title": "Well-Fitted",
+                "details": "Fits well and provides a tailored appearance.",
+                "rating": 4.6
+            },
+            {
+                "title": "Premium Quality",
+                "details": "Premium quality woolen pants.",
+                "rating": 4.8
+            }
+        ],
+        "cloth_type": "Woolen",
+        "category": "pant",
+        "occasion": "Office",
+        "weather_suitable": "Cold",
+        "average_review": 4.76
+    },
+    {
+        "image_url": "https://example.com/pant11_image.jpg",
+        "name": "Stretchable Casual Jogger Pants",
+        "brand_name": "HRX",
+        "color": "Grey",
+        "price": 950,
+        "sizes_available": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "customer_reviews": [
+            {
+                "title": "Comfortable Stretch",
+                "details": "Stretchable fabric for maximum comfort.",
+                "rating": 4.7
+            },
+            {
+                "title": "Casual Jogger Style",
+                "details": "Jogger style provides a comfortable and casual look.",
+                "rating": 4.8
+            },
+            {
+                "title": "Versatile Casual Wear",
+                "details": "Versatile for various casual occasions.",
+                "rating": 4.9
+            },
+            {
+                "title": "Quality Material",
+                "details": "High-quality fabric that doesn't lose shape.",
+                "rating": 4.6
+            },
+            {
+                "title": "Satisfied Customer",
+                "details": "Satisfied with the fit and durability.",
+                "rating": 4.5
+            }
+        ],
+        "cloth_type": "Cotton",
+        "category": "pant",
+        "occasion": "Casual",
+        "weather_suitable": "Hot",
+        "average_review": 4.7
+    }
+]

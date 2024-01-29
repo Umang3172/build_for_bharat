@@ -1,52 +1,64 @@
+import 'dart:core';
+
+import 'package:build_for_bharat/common/models/customerReviews.dart';
+
 class ProductModel {
   final String title;
-  final String price;
-  final String description;
+  final int price;
+
   final String productImg;
+  final String color;
+  final String average_review;
+  final String occasion;
+  final String weather_suitable;
+  final String cloth_type;
+  final String category;
+  final List<CustomerReviews> reviews;
+  final String brand;
+  final List<String> sizes;
 
-  ProductModel({
-    required this.title,
-    required this.price,
-    required this.description,
-    required this.productImg,
-  });
+  ProductModel(
+      {required this.title,
+      required this.price,
+      required this.productImg,
+      required this.color,
+      required this.average_review,
+      required this.occasion,
+      required this.weather_suitable,
+      required this.cloth_type,
+      required this.reviews,
+      required this.brand,
+      required this.sizes,
+      required this.category});
 
-  static final productList = [
-    ProductModel(
-        title: 'Black tshirt new',
-        price: '₹999',
-        description:
-            'Introducing our sleek and versatile black T-shirt, a wardrobe essential that effortlessly combines style and comfort. Crafted from high-quality cotton, this classic piece boasts a luxuriously soft feel against the skin, ensuring all-day comfort. The deep, rich black hue adds a touch of sophistication, making it the perfect canvas for any outfit.',
-        productImg: 'assets/images/tshirt_person_1.jpg'),
-    ProductModel(
-        title: 'Classic Black Cotton T-Shirt',
-        price: '₹1299',
-        description:
-            'Timeless and comfortable, this classic black T-shirt is made from premium cotton for a soft feel. A versatile wardrobe staple suitable for any occasion.',
-        productImg: 'assets/images/tshirt_person_2.webp'),
-    ProductModel(
-        title: 'Classic Black Cotton T-Shirt',
-        price: '₹1299',
-        description:
-            'Timeless and comfortable, this classic black T-shirt is made from premium cotton for a soft feel. A versatile wardrobe staple suitable for any occasion.',
-        productImg: 'assets/images/tshirt_person_3.jpg'),
-    ProductModel(
-        title: 'Classic Black Cotton T-Shirt',
-        price: '₹1299',
-        description:
-            'Timeless and comfortable, this classic black T-shirt is made from premium cotton for a soft feel. A versatile wardrobe staple suitable for any occasion.',
-        productImg: 'assets/images/tshirt_person_4.jpg'),
-    ProductModel(
-        title: 'Classic Black Cotton T-Shirt',
-        price: '₹1299',
-        description:
-            'Timeless and comfortable, this classic black T-shirt is made from premium cotton for a soft feel. A versatile wardrobe staple suitable for any occasion.',
-        productImg: 'assets/images/tshirt_person_2.webp'),
-    ProductModel(
-        title: 'Classic Black Cotton T-Shirt',
-        price: '₹1299',
-        description:
-            'Timeless and comfortable, this classic black T-shirt is made from premium cotton for a soft feel. A versatile wardrobe staple suitable for any occasion.',
-        productImg: 'assets/images/tshirt_person_2.webp'),
-  ];
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      title: (json.containsKey('name')) ? json['name'] : "null",
+      productImg: (json.containsKey('image_url')) ? json['image_url'] : "",
+      price: (json.containsKey('price')) ? json['price'] as int : 0,
+      brand: (json.containsKey('brand_name')) ? json['brand_name'] : "null",
+      color: (json.containsKey('color')) ? json['color'] : "null",
+      sizes: (json.containsKey('sizes_available'))
+          ? List<String>.from(json['sizes_available'])
+          : [],
+      reviews: (json.containsKey('customer_reviews'))
+          ? CustomerReviews.fromJsonList(json['customer_reviews'])
+          : [],
+      cloth_type: (json.containsKey('color')) ? json['color'] : "null",
+      category: (json.containsKey('color')) ? json['color'] : "null",
+      occasion: (json.containsKey('color')) ? json['color'] : "null",
+      weather_suitable: (json.containsKey('color')) ? json['color'] : "null",
+      average_review: (json.containsKey('color')) ? json['color'] : "null",
+    );
+  }
+
+  static final productList = [];
+
+  List<String> getSizes(json) {
+    return [];
+  }
+
+  List<CustomerReviews> getReviews(json) {
+    return [];
+  }
 }

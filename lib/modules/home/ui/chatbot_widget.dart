@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:build_for_bharat/openai_service.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -26,10 +27,16 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  bool isStart = true;
   List<types.Message> _messages = [];
   final _user = const types.User(
     id: '82091008-a484-4a89-ae75-a22bf8d6f3ac',
   );
+
+  final _bot = const types.User(id: '82091008-a484-4a89-ae75-a22bf8d6f3bd');
+
+  bool isDataLoading = false;
+  final OpenAIService openAIService = OpenAIService();
 
   @override
   void initState() {
@@ -191,15 +198,30 @@ class _ChatPageState extends State<ChatPage> {
     });
   }
 
-  void _handleSendPressed(types.PartialText message) {
+  Future<void> _handleSendPressed(types.PartialText message) async {
     final textMessage = types.TextMessage(
       author: _user,
       createdAt: DateTime.now().millisecondsSinceEpoch,
       id: const Uuid().v4(),
       text: message.text,
     );
+    setState(() {
+      isDataLoading = true;
+    });
 
+    final aiResponse = await openAIService.chatGPTAPI(message.text, isStart);
+
+    final botMessage = types.TextMessage(
+        author: _bot,
+        createdAt: DateTime.now().microsecondsSinceEpoch,
+        id: const Uuid().v4(),
+        text: aiResponse);
     _addMessage(textMessage);
+    setState(() {
+      isDataLoading = false;
+      isStart = false;
+    });
+    _addMessage(botMessage);
   }
 
   void _loadMessages() async {
