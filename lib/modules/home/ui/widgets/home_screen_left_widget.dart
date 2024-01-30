@@ -1,7 +1,9 @@
 import 'package:build_for_bharat/common/models/product_model.dart';
+import 'package:build_for_bharat/common/widgets/common_app_bar.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/expanded_categories_widget.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/right_side_appbar_menu.dart';
+import 'package:build_for_bharat/modules/products/ui/product_detail_screen.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
 import 'package:build_for_bharat/utils/styles.dart';
@@ -43,12 +45,16 @@ class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
-                  crossAxisSpacing: ScreenUtil.sh * 0.03,
-                  mainAxisSpacing: ScreenUtil.sh * 0.04,
-                  childAspectRatio: 0.8),
+                  childAspectRatio: 0.7,
+                  crossAxisSpacing: ScreenUtil.sw * 0.04,
+                  mainAxisSpacing: ScreenUtil.sh * 0.04),
               itemBuilder: (context, index) {
-                return ItemGridTile(
-                    productDetailModel: ProductModel.productList[index]);
+                return GestureDetector(
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ProductDetailScreen())),
+                  child: ItemGridTile(
+                      productDetailModel: ProductModel.productList[index]),
+                );
               }),
         )
       ],
