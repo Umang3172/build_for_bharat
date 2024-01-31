@@ -2,16 +2,19 @@ import 'dart:convert';
 
 import 'package:build_for_bharat/common/models/jsonParsing.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
+import 'package:build_for_bharat/common/models/tags.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/expanded_categories_widget.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/productList.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/right_side_appbar_menu.dart';
+import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
 import 'package:build_for_bharat/utils/styles.dart';
 import 'package:build_for_bharat/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreenLeftWidget extends StatefulWidget {
   const HomeScreenLeftWidget({super.key});
@@ -24,7 +27,7 @@ class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
   @override
   Widget build(BuildContext context) {
     JsonParsing jsonParsing = JsonParsing();
-    List<String> selectedUserList = [];
+    Tags selectedUserList;
     return SingleChildScrollView(
         child: Column(
       children: [
@@ -54,17 +57,21 @@ class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
                     child: Text("Error loading data: ${snapshot.error}"),
                   );
                 }
-
+                print("calling parse method");
                 List<ProductModel> list =
                     jsonParsing.parseProducts(snapshot.data!);
+
                 print(list.length);
-                List<String> list_of_categories = ["tshirt", "shirt", "pant"];
-                selectedUserList = List.from(list_of_categories);
+
+                print(
+                    "${list[0].category} ${list[0].color} ${list[0].weather_suitable} ${list[0].occasion} ${list[0].sizes}");
+
+                Provider.of<ProductProvider>(context, listen: false)
+                    .initiateList(list);
 
                 return ProductList(
-                    products: list,
-                    list_of_categories: list_of_categories,
-                    selectedUserList: selectedUserList);
+                  products: list,
+                );
               } else {
                 return Center(
                   child: CircularProgressIndicator(),

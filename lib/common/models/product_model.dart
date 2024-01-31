@@ -44,21 +44,16 @@ class ProductModel {
       reviews: (json.containsKey('customer_reviews'))
           ? CustomerReviews.fromJsonList(json['customer_reviews'])
           : [],
-      cloth_type: (json.containsKey('color')) ? json['color'] : "null",
-      category: (json.containsKey('color')) ? json['color'] : "null",
-      occasion: (json.containsKey('color')) ? json['color'] : "null",
-      weather_suitable: (json.containsKey('color')) ? json['color'] : "null",
-      average_review: (json.containsKey('color')) ? json['color'] : "null",
+      cloth_type:
+          (json.containsKey('cloth_type')) ? json['cloth_type'] : "null",
+      category: (json.containsKey('category')) ? json['category'] : "null",
+      occasion: (json.containsKey('occasion')) ? json['occasion'] : "null",
+      weather_suitable: (json.containsKey('weather_suitable'))
+          ? json['weather_suitable']
+          : "",
+      average_review: (json.containsKey('average_review'))
+          ? json['average_review'].toString()
+          : "",
     );
-  }
-
-  static final productList = [];
-
-  List<String> getSizes(json) {
-    return [];
-  }
-
-  List<CustomerReviews> getReviews(json) {
-    return [];
   }
 }

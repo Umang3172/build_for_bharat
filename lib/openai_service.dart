@@ -1,55 +1,78 @@
 import 'dart:convert';
 
+import 'package:build_for_bharat/common/models/tags.dart';
+import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/strings.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 class OpenAIService {
   final List<Map<String, String>> messages = [];
   static const apiUri = 'https://api.openai.com/v1/chat/completions';
-  static const apiKey = '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';
+  static const apiKey = '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';
 
-  Future<String> chatGPTAPI(String prompt, bool isStart) async {
-    return "Yes";
-    // if (isStart) {
-    //   prompt = Strings.rules;
-    // }
-    // messages.add({
-    //   "role": "user",
-    //   "content": prompt,
-    // });
-    // try {
-    //   final res = await http.post(
-    //     Uri.parse(apiUri),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       "Authorization": 'Bearer $apiKey',
-    //       'OpenAI-Organization': ''
-    //     },
-    //     body: jsonEncode({
-    //       "model": "gpt-3.5-turbo",
-    //       "messages": messages,
-    //       "temperature": 0.7
-    //     }),
-    //   );
+  // Use productProvider to call the function and update the list.
+  // Example: productProvider.updateList(tags);
 
-    //   //print(res.body);
+  Future<Map<String, String>> chatGPTAPI(String prompt, bool isStart) async {
+    // return "Yes";
+    if (isStart) {
+      prompt = Strings.rules;
+    }
+    messages.add({
+      "role": "user",
+      "content": prompt,
+    });
+    try {
+      final res = await http.post(
+        Uri.parse(apiUri),
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": 'Bearer $apiKey',
+          'OpenAI-Organization': ''
+        },
+        body: jsonEncode({
+          "model": "gpt-3.5-turbo",
+          "messages": messages,
+          "temperature": 0.7
+        }),
+      );
 
-    //   if (res.statusCode == 200) {
-    //     String content =
-    //         jsonDecode(res.body)['choices'][0]['message']['content'];
-    //     content = content.trim();
+      //print(res.body);
 
-    //     messages.add({
-    //       'role': 'assistant',
-    //       'content': content,
-    //     });
-    //     return content;
-    //   } else {
-    //     print(res.body);
-    //   }
-    //   return 'An internal error occurred';
-    // } catch (e) {
-    //   return e.toString();
-    // }
+      if (res.statusCode == 200) {
+        String content =
+            jsonDecode(res.body)['choices'][0]['message']['content'];
+        content = content.trim();
+        // print('content ${content}');
+        var result1 = extractJson(content);
+        // print('result1 ${result1['remaining']}');
+        // print('result1 ${result1['json']}');
+        messages.add({
+          'role': 'assistant',
+          'content': result1['remaining']!,
+        });
+
+        return {'response': result1['remaining']!, 'tag': result1['json']!};
+      } else {
+        print(res.body);
+      }
+      return {'response': 'An internal error occurred', 'tag': ''};
+    } catch (e) {
+      return {'response': e.toString(), 'tag': ''};
+    }
+  }
+
+  Map<String, String> extractJson(String response) {
+    int start = response.indexOf('{');
+    int end = response.lastIndexOf('}');
+
+    String json =
+        (start != -1 && end != -1) ? response.substring(start, end + 1) : '';
+    String remaining = (start != -1 && end != -1)
+        ? response.replaceRange(start, end + 1, '')
+        : response;
+
+    return {'json': json, 'remaining': remaining};
   }
 }

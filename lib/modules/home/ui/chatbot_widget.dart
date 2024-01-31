@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:build_for_bharat/common/models/tags.dart';
 import 'package:build_for_bharat/openai_service.dart';
+import 'package:build_for_bharat/productProvider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -13,6 +15,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
@@ -21,12 +24,18 @@ void main() {
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
-
+  void handleSendPressed() {
+    // Implement the functionality you want when HandleSendPressed is called
+  }
   @override
   State<ChatPage> createState() => _ChatPageState();
 }
 
 class _ChatPageState extends State<ChatPage> {
+  // ProductProvider productProvider =
+
+  // Use productProvider to call the function and update the list.
+  // Example: productProvider.updateList(tags);
   bool isStart = true;
   List<types.Message> _messages = [];
   final _user = const types.User(
@@ -209,19 +218,40 @@ class _ChatPageState extends State<ChatPage> {
       isDataLoading = true;
     });
 
-    final aiResponse = await openAIService.chatGPTAPI(message.text, isStart);
+    Map<String, String> aiResponse =
+        await openAIService.chatGPTAPI(message.text, isStart);
 
     final botMessage = types.TextMessage(
         author: _bot,
         createdAt: DateTime.now().microsecondsSinceEpoch,
         id: const Uuid().v4(),
-        text: aiResponse);
+        text: aiResponse['response']!);
+
     _addMessage(textMessage);
+    bool care = aiResponse['tag']?.trim() == '' ? false : true;
+    print(aiResponse['tag']);
+    Tags tags = parseTags(aiResponse['tag']!);
+
+    Provider.of<ProductProvider>(context, listen: false).updateList(tags, care);
     setState(() {
       isDataLoading = false;
       isStart = false;
     });
     _addMessage(botMessage);
+  }
+
+  Tags parseTags(String jsonString) {
+    if (jsonString.trim() == '')
+      return Tags(
+          cart: [],
+          category: '',
+          color: '',
+          sizes: '',
+          weather_suitable: '',
+          occasion: '',
+          brand: '');
+    Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+    return Tags.fromJson(jsonMap);
   }
 
   void _loadMessages() async {

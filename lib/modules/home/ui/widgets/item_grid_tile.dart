@@ -1,4 +1,6 @@
 import 'package:build_for_bharat/common/models/product_model.dart';
+import 'package:build_for_bharat/modules/home/ui/chatbot_widget.dart';
+import 'package:build_for_bharat/openai_service.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
 import 'package:build_for_bharat/utils/styles.dart';
@@ -6,13 +8,21 @@ import 'package:build_for_bharat/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemGridTile extends StatelessWidget {
+  // final VoidCallback onTap;
+
   final ProductModel productDetailModel;
 
   const ItemGridTile({super.key, required this.productDetailModel});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return GestureDetector(
+        // onTap: () {
+        //   // Handle the click event here, for example, navigate to a new screen.
+        //   // Navigator.push(context, MaterialPageRoute(builder: (context) => YourNewScreen()));
+        //   onTap();
+        // },
+        child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
@@ -74,6 +84,6 @@ class ItemGridTile extends StatelessWidget {
           style: Styles.tsw700xxs.apply(color: AppColors.primaryTextColor),
         )
       ],
-    );
+    ));
   }
 }
