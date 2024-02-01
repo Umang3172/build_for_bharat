@@ -25,9 +25,7 @@ class ItemGridTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(
-                    productDetailModel.productImg,
-                  ),
+                  image: AssetImage('assets/images/tshirt_person_4.jpg'),
                 ),
               ),
             ),
@@ -73,7 +71,7 @@ class ItemGridTile extends StatelessWidget {
           style: Styles.tsw400xxs.apply(color: AppColors.primaryTextColor),
         ),
         Text(
-          productDetailModel.price,
+          " ${productDetailModel.price}",
           style: Styles.tsw700xxs.apply(color: AppColors.primaryTextColor),
         )
       ],

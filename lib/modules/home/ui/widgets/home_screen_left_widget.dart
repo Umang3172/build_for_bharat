@@ -1,7 +1,11 @@
+import 'dart:convert';
+
+import 'package:build_for_bharat/utils/json_parsing.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/common/widgets/common_app_bar.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/expanded_categories_widget.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
+import 'package:build_for_bharat/modules/home/ui/widgets/productList.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/right_side_appbar_menu.dart';
 import 'package:build_for_bharat/modules/products/ui/product_detail_screen.dart';
 import 'package:build_for_bharat/utils/gap.dart';
@@ -9,6 +13,7 @@ import 'package:build_for_bharat/utils/screen_util.dart';
 import 'package:build_for_bharat/utils/styles.dart';
 import 'package:build_for_bharat/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreenLeftWidget extends StatefulWidget {
   const HomeScreenLeftWidget({super.key});
@@ -20,7 +25,10 @@ class HomeScreenLeftWidget extends StatefulWidget {
 class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    JsonParsing jsonParsing = JsonParsing();
+    List<String> selectedUserList = [];
+    return SingleChildScrollView(
+        child: Column(
       children: [
         const HeaderStackWidget(),
         SizedBox(
@@ -39,26 +47,45 @@ class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
         ),
         Container(
           padding: const EdgeInsets.all(12),
-          child: GridView.builder(
-              shrinkWrap: true,
-              itemCount: ProductModel.productList.length,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  childAspectRatio: 0.7,
-                  crossAxisSpacing: ScreenUtil.sw * 0.04,
-                  mainAxisSpacing: ScreenUtil.sh * 0.04),
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ProductDetailScreen())),
-                  child: ItemGridTile(
-                      productDetailModel: ProductModel.productList[index]),
+          child: FutureBuilder<String>(
+            future: _loadJsonFile(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text("Error loading data: ${snapshot.error}"),
+                  );
+                }
+
+                List<ProductModel> list =
+                    jsonParsing.parseProducts(snapshot.data!);
+                print(list.length);
+                List<String> list_of_categories = ["tshirt", "shirt", "pant"];
+                selectedUserList = List.from(list_of_categories);
+
+                return ProductList(
+                    products: list,
+                    list_of_categories: list_of_categories,
+                    selectedUserList: selectedUserList);
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
                 );
-              }),
+              }
+            },
+          ),
         )
       ],
-    );
+    ));
+  }
+
+  Future<String> _loadJsonFile() async {
+    try {
+      return await rootBundle.loadString('products.json');
+    } catch (e) {
+      print("Error loading JSON file: $e");
+      return "";
+    }
   }
 }
 
@@ -126,3 +153,17 @@ class HeaderStackWidget extends StatelessWidget {
     );
   }
 }
+
+// GridView.builder(
+//               shrinkWrap: true,
+//               itemCount: ProductModel.productList.length,
+//               physics: const NeverScrollableScrollPhysics(),
+//               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                   crossAxisCount: 4,
+//                   crossAxisSpacing: ScreenUtil.sh * 0.03,
+//                   mainAxisSpacing: ScreenUtil.sh * 0.04,
+//                   childAspectRatio: 0.8),
+//               itemBuilder: (context, index) {
+//                 return ItemGridTile(
+//                     productDetailModel: ProductModel.productList[index]);
+//               }),

@@ -11,23 +11,22 @@ class BasicLayoutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Row(
-          children: [
-            Expanded(
-              child: SizedBox(
-                child: leftWidget,
-              ),
+      body: Row(
+        children: [
+          Expanded(
+            child: SizedBox(
+              child: leftWidget,
             ),
-            SizedBox(
-              width: Gap.swg,
-            ),
-            SizedBox(
-              width: ScreenUtil.sw * 0.3,
-              child: rightWidget,
-            )
-          ],
-        ),
+          ),
+          SizedBox(
+            width: Gap.swg,
+          ),
+          SizedBox(
+            width: ScreenUtil.sw * 0.3,
+            height: ScreenUtil.sh,
+            child: rightWidget,
+          )
+        ],
       ),
     );
   }
