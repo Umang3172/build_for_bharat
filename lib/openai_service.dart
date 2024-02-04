@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class OpenAIService {
   final List<Map<String, String>> messages = [];
   static const apiUri = 'https://api.openai.com/v1/chat/completions';
-  static const apiKey = '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';
+  static const apiKey = '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';
 
   // Use productProvider to call the function and update the list.
   // Example: productProvider.updateList(tags);

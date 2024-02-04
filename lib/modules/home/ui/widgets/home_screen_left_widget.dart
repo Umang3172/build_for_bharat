@@ -27,7 +27,7 @@ class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
   @override
   Widget build(BuildContext context) {
     JsonParsing jsonParsing = JsonParsing();
-    Tags selectedUserList;
+
     return SingleChildScrollView(
         child: Column(
       children: [

@@ -1,14 +1,21 @@
 import 'package:build_for_bharat/common/models/tags.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class ProductProvider extends ChangeNotifier {
   List<ProductModel> prod_list = [];
   List<ProductModel> og_prod_list = [];
+  List<types.Message> messages = [];
+  bool isListening = false;
 
   void initiateList(List<ProductModel> list) {
     og_prod_list = list;
     prod_list = list;
+  }
+
+  void alterMessages() {
+    notifyListeners();
   }
 
   void updateList(Tags tags, bool include) {

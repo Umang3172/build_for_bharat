@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:build_for_bharat/common/models/tags.dart';
+import 'package:build_for_bharat/modules/home/ui/widgets/voicePopup.dart';
 import 'package:build_for_bharat/openai_service.dart';
 import 'package:build_for_bharat/productProvider.dart';
 import 'package:file_picker/file_picker.dart';
@@ -16,6 +17,8 @@ import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
+
 import 'package:uuid/uuid.dart';
 
 void main() {
@@ -24,9 +27,7 @@ void main() {
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
-  void handleSendPressed() {
-    // Implement the functionality you want when HandleSendPressed is called
-  }
+
   @override
   State<ChatPage> createState() => _ChatPageState();
 }
@@ -37,7 +38,12 @@ class _ChatPageState extends State<ChatPage> {
   // Use productProvider to call the function and update the list.
   // Example: productProvider.updateList(tags);
   bool isStart = true;
-  List<types.Message> _messages = [];
+  stt.SpeechToText _speech = stt.SpeechToText();
+  bool _isListening = false;
+
+  String text = '';
+  double _confidence = 1.0;
+  // List<types.Message> _messages = [];
   final _user = const types.User(
     id: '82091008-a484-4a89-ae75-a22bf8d6f3ac',
   );
@@ -50,76 +56,73 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
+    _handleSendPressed(types.PartialText(text: 'Hi'));
+    Provider.of<ProductProvider>(context, listen: false).isListening = false;
     _loadMessages();
   }
 
   void _addMessage(types.Message message) {
     setState(() {
-      _messages.insert(0, message);
+      Provider.of<ProductProvider>(context, listen: false)
+          .messages
+          .insert(0, message);
     });
   }
 
   void _handleAttachmentPressed() {
-    showModalBottomSheet<void>(
-      context: context,
-      builder: (BuildContext context) => SafeArea(
-        child: SizedBox(
-          height: 144,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _handleImageSelection();
-                },
-                child: const Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text('Photo'),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _handleFileSelection();
-                },
-                child: const Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text('File'),
-                ),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text('Cancel'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    // showModalBottomSheet<void>(
+    //   context: context,
+    //   builder: (BuildContext context) => SafeArea(
+    //     child: SizedBox(
+    //       height: 144,
+    //       child: Column(
+    //         crossAxisAlignment: CrossAxisAlignment.stretch,
+    //         children: <Widget>[
+    //           TextButton(
+    //             onPressed: () {
+    //               Navigator.pop(context);
+    //               _handleImageSelection();
+    //             },
+    //             child: const Align(
+    //               alignment: AlignmentDirectional.centerStart,
+    //               child: Text('Photo'),
+    //             ),
+    //           ),
+    //           TextButton(
+    //             onPressed: () {
+    //               Navigator.pop(context);
+    //               _handleFileSelection();
+    //             },
+    //             child: const Align(
+    //               alignment: AlignmentDirectional.centerStart,
+    //               child: Text('Voice'),
+    //             ),
+    //           ),
+    //           TextButton(
+    //             onPressed: () => Navigator.pop(context),
+    //             child: const Align(
+    //               alignment: AlignmentDirectional.centerStart,
+    //               child: Text('Cancel'),
+    //             ),
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //   ),
+    // );
+    _handleFileSelection();
   }
 
   void _handleFileSelection() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.any,
-    );
-
-    if (result != null && result.files.single.path != null) {
-      final message = types.FileMessage(
-        author: _user,
-        createdAt: DateTime.now().millisecondsSinceEpoch,
-        id: const Uuid().v4(),
-        mimeType: lookupMimeType(result.files.single.path!),
-        name: result.files.single.name,
-        size: result.files.single.size,
-        uri: result.files.single.path!,
-      );
-
-      _addMessage(message);
+    if (!_isListening) {
+      print('listening started');
+      startListening();
+    } else {
+      print('stopped');
+      stopListening();
+      _handleSendPressed(types.PartialText(text: text));
     }
+    // Do something with _recognizedText
   }
 
   void _handleImageSelection() async {
@@ -154,15 +157,19 @@ class _ChatPageState extends State<ChatPage> {
 
       if (message.uri.startsWith('http')) {
         try {
-          final index =
-              _messages.indexWhere((element) => element.id == message.id);
+          final index = Provider.of<ProductProvider>(context, listen: false)
+              .messages
+              .indexWhere((element) => element.id == message.id);
           final updatedMessage =
-              (_messages[index] as types.FileMessage).copyWith(
+              (Provider.of<ProductProvider>(context, listen: false)
+                      .messages[index] as types.FileMessage)
+                  .copyWith(
             isLoading: true,
           );
 
           setState(() {
-            _messages[index] = updatedMessage;
+            Provider.of<ProductProvider>(context, listen: false)
+                .messages[index] = updatedMessage;
           });
 
           final client = http.Client();
@@ -176,15 +183,19 @@ class _ChatPageState extends State<ChatPage> {
             await file.writeAsBytes(bytes);
           }
         } finally {
-          final index =
-              _messages.indexWhere((element) => element.id == message.id);
+          final index = Provider.of<ProductProvider>(context, listen: false)
+              .messages
+              .indexWhere((element) => element.id == message.id);
           final updatedMessage =
-              (_messages[index] as types.FileMessage).copyWith(
+              (Provider.of<ProductProvider>(context, listen: false)
+                      .messages[index] as types.FileMessage)
+                  .copyWith(
             isLoading: null,
           );
 
           setState(() {
-            _messages[index] = updatedMessage;
+            Provider.of<ProductProvider>(context, listen: false)
+                .messages[index] = updatedMessage;
           });
         }
       }
@@ -197,13 +208,18 @@ class _ChatPageState extends State<ChatPage> {
     types.TextMessage message,
     types.PreviewData previewData,
   ) {
-    final index = _messages.indexWhere((element) => element.id == message.id);
-    final updatedMessage = (_messages[index] as types.TextMessage).copyWith(
+    final index = Provider.of<ProductProvider>(context, listen: false)
+        .messages
+        .indexWhere((element) => element.id == message.id);
+    final updatedMessage = (Provider.of<ProductProvider>(context, listen: false)
+            .messages[index] as types.TextMessage)
+        .copyWith(
       previewData: previewData,
     );
 
     setState(() {
-      _messages[index] = updatedMessage;
+      Provider.of<ProductProvider>(context, listen: false).messages[index] =
+          updatedMessage;
     });
   }
 
@@ -214,9 +230,11 @@ class _ChatPageState extends State<ChatPage> {
       id: const Uuid().v4(),
       text: message.text,
     );
+
     setState(() {
       isDataLoading = true;
     });
+    _addMessage(textMessage);
 
     Map<String, String> aiResponse =
         await openAIService.chatGPTAPI(message.text, isStart);
@@ -227,7 +245,6 @@ class _ChatPageState extends State<ChatPage> {
         id: const Uuid().v4(),
         text: aiResponse['response']!);
 
-    _addMessage(textMessage);
     bool care = aiResponse['tag']?.trim() == '' ? false : true;
     print(aiResponse['tag']);
     Tags tags = parseTags(aiResponse['tag']!);
@@ -261,14 +278,74 @@ class _ChatPageState extends State<ChatPage> {
         .toList();
 
     setState(() {
-      _messages = messages;
+      Provider.of<ProductProvider>(context, listen: false).messages = messages;
     });
   }
 
+  void startListening() async {
+    bool available = await _speech.initialize(
+      onStatus: (status) {
+        print("Speech recognition status: $status");
+      },
+      onError: (errorNotification) {
+        print("Speech recognition error: $errorNotification");
+      },
+    );
+
+    if (available) {
+      setState(() {
+        Provider.of<ProductProvider>(context, listen: false).isListening = true;
+        _isListening = true;
+      });
+      _speech.listen(
+        onResult: (result) {
+          print(result.recognizedWords);
+          setState(() {
+            text = result.recognizedWords;
+          });
+        },
+        // onError: (error) {
+        //   print(error);
+        //   Fluttertoast.showToast(
+        //     msg: 'Error: $error',
+        //     gravity: ToastGravity.BOTTOM,
+        //     backgroundColor: Colors.red,
+        //   );
+        // },
+      );
+    } else {
+      print("Speech recognition not available");
+    }
+  }
+
+  void stopListening() {
+    // _speech.stop();
+    // _isListening = false;
+
+    if (_isListening) {
+      _speech.stop();
+      setState(() {
+        Provider.of<ProductProvider>(context, listen: false).isListening =
+            false;
+        _isListening = false;
+      });
+
+      print('last print is' + _speech.lastRecognizedWords);
+    }
+    // Handle the case where stopListening is called without starting first
+    else {
+      print("Not currently listening");
+    }
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) {
+    return Consumer<ProductProvider>(
+        builder: (context, productProvider, child) {
+      return Scaffold(
         body: Chat(
-          messages: _messages,
+          messages:
+              Provider.of<ProductProvider>(context, listen: false).messages,
           onAttachmentPressed: _handleAttachmentPressed,
           onMessageTap: _handleMessageTap,
           onPreviewDataFetched: _handlePreviewDataFetched,
@@ -278,4 +355,6 @@ class _ChatPageState extends State<ChatPage> {
           user: _user,
         ),
       );
+    });
+  }
 }
