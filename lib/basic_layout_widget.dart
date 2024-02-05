@@ -22,7 +22,7 @@ class BasicLayoutWidget extends StatelessWidget {
             width: Gap.swg,
           ),
           SizedBox(
-            width: ScreenUtil.sw * 0.3,
+            width: ScreenUtil.sw * 0.35,
             height: ScreenUtil.sh,
             child: rightWidget,
           )

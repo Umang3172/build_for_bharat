@@ -50,20 +50,9 @@ class ProductModel {
       occasion: (json.containsKey('occasion')) ? json['occasion'] : "null",
       weather_suitable: (json.containsKey('weather_suitable'))
           ? json['weather_suitable']
-          : "null",
-      average_review: (json.containsKey('average_review'))
-          ? json['average_review']
-          : "null",
+          : "",
+      average_review:
+          (json.containsKey('average_review')) ? json['average_review'] : "",
     );
-  }
-
-  static final productList = [];
-
-  List<String> getSizes(json) {
-    return [];
-  }
-
-  List<CustomerReviews> getReviews(json) {
-    return [];
   }
 }

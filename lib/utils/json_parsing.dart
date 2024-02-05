@@ -14,16 +14,17 @@ class JsonParsing {
   //   return ans;
   // }
 
-  List<ProductModel> currList(
-      List<ProductModel> list, List<String?> categories) {
-    return list
-        .where(
-            (item) => categories.any((category) => category == item.category))
-        .toList();
-  }
+  // List<ProductModel> currList(
+  //     List<ProductModel> list, List<String?> categories) {
+  //   return list
+  //       .where(
+  //           (item) => categories.any((category) => category == item.category))
+  //       .toList();
+  // }
 
   List<ProductModel> parseProducts(String jsonString) {
     final List<dynamic> responseBody = jsonDecode(jsonString);
+    print("parsing");
     return responseBody
         .map<ProductModel>(
           (json) => ProductModel.fromJson(json),
