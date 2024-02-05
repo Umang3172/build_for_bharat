@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:build_for_bharat/Secrets/Secrets.dart';
 import 'package:build_for_bharat/common/models/tags.dart';
 import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/strings.dart';
@@ -7,9 +8,10 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class OpenAIService {
+  Secret secret = Secret();
   final List<Map<String, String>> messages = [];
-  static const apiUri = 'https://api.openai.com/v1/chat/completions';
-  static const apiKey = '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';
+  static const apiUri = Secret.api_url;
+  static const apiKey = Secret.api_key;
 
   // Use productProvider to call the function and update the list.
   // Example: productProvider.updateList(tags);
