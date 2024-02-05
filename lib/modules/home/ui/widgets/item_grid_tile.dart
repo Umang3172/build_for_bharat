@@ -2,6 +2,7 @@ import 'dart:js';
 
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/modules/home/ui/chatbot_widget.dart';
+import 'package:build_for_bharat/modules/products/ui/product_detail_screen.dart';
 import 'package:build_for_bharat/openai_service.dart';
 import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/gap.dart';
@@ -29,8 +30,15 @@ class ItemGridTile extends StatelessWidget {
           // Navigator.push(context, MaterialPageRoute(builder: (context) => YourNewScreen()));
           print('on Tap called');
           String prompt = preparePrompt(productDetailModel);
-          print('prompt is ${prompt}');
+          // print('prompt is ${prompt}');
           getProductDetails(prompt, context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ProductDetailScreen(productModel: productDetailModel),
+            ),
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
