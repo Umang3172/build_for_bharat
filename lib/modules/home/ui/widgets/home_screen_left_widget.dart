@@ -1,13 +1,15 @@
 import 'dart:convert';
 
-import 'package:build_for_bharat/common/models/jsonParsing.dart';
+import 'package:build_for_bharat/utils/json_parsing.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/common/models/tags.dart';
+import 'package:build_for_bharat/common/widgets/common_app_bar.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/expanded_categories_widget.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/productList.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/right_side_appbar_menu.dart';
 import 'package:build_for_bharat/productProvider.dart';
+import 'package:build_for_bharat/modules/products/ui/product_detail_screen.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
 import 'package:build_for_bharat/utils/styles.dart';
@@ -86,7 +88,7 @@ class _HomeScreenLeftWidgetState extends State<HomeScreenLeftWidget> {
 
   Future<String> _loadJsonFile() async {
     try {
-      return await rootBundle.loadString('assets/products.json');
+      return await rootBundle.loadString('products.json');
     } catch (e) {
       print("Error loading JSON file: $e");
       return "";

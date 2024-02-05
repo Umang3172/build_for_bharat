@@ -34,6 +34,7 @@ class ItemGridTile extends StatelessWidget {
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Stack(
               children: [
@@ -119,7 +120,7 @@ class ItemGridTile extends StatelessWidget {
     String prod_name = productDetailModel.title;
     String prod_price = '${productDetailModel.price}';
     String prod_category = productDetailModel.category;
-    String prod_avg_review = productDetailModel.average_review;
+    double prod_avg_review = productDetailModel.average_review;
     String prod_color = productDetailModel.color;
     String prod_cloth = productDetailModel.cloth_type;
     String prod_weather = productDetailModel.weather_suitable;

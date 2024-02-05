@@ -26,7 +26,9 @@ class JsonParsing {
     final List<dynamic> responseBody = jsonDecode(jsonString);
     print("parsing");
     return responseBody
-        .map<ProductModel>((json) => ProductModel.fromJson(json))
+        .map<ProductModel>(
+          (json) => ProductModel.fromJson(json),
+        )
         .toList();
   }
 }

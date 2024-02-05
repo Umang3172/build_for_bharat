@@ -8,7 +8,7 @@ class ProductModel {
 
   final String productImg;
   final String color;
-  final String average_review;
+  final double average_review;
   final String occasion;
   final String weather_suitable;
   final String cloth_type;
@@ -51,9 +51,8 @@ class ProductModel {
       weather_suitable: (json.containsKey('weather_suitable'))
           ? json['weather_suitable']
           : "",
-      average_review: (json.containsKey('average_review'))
-          ? json['average_review'].toString()
-          : "",
+      average_review:
+          (json.containsKey('average_review')) ? json['average_review'] : "",
     );
   }
 }

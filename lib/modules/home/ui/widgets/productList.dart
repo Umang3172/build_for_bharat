@@ -1,4 +1,5 @@
-import 'package:build_for_bharat/common/models/jsonParsing.dart';
+import 'package:build_for_bharat/modules/products/ui/product_detail_screen.dart';
+import 'package:build_for_bharat/utils/json_parsing.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
 import 'package:build_for_bharat/productProvider.dart';
@@ -40,7 +41,15 @@ class _MyProductList extends State<ProductList> {
                   mainAxisSpacing: ScreenUtil.sh * 0.04,
                   childAspectRatio: 0.8),
               itemBuilder: (context, index) {
-                return ItemGridTile(productDetailModel: curr_list[index]);
+                return GestureDetector(
+                    onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailScreen(
+                              productModel: curr_list[index],
+                            ),
+                          ),
+                        ),
+                    child: ItemGridTile(productDetailModel: curr_list[index]));
               }));
     });
   }
