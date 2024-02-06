@@ -8,9 +8,10 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class OpenAIService {
+  Secret secret = Secret();
   final List<Map<String, String>> messages = [];
-  static const apiUri = 'https://api.openai.com/v1/chat/completions';
-  static const apiKey = Secrets.apiKey;
+  static const apiUri = Secret.api_url;
+  static const apiKey = Secret.api_key;
 
   // Use productProvider to call the function and update the list.
   // Example: productProvider.updateList(tags);

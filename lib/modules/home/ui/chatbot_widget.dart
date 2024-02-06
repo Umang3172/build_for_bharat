@@ -18,6 +18,7 @@ import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:uuid/uuid.dart';
 
@@ -40,8 +41,9 @@ class _ChatPageState extends State<ChatPage> {
   bool isStart = true;
   stt.SpeechToText _speech = stt.SpeechToText();
   bool _isListening = false;
-
+  FlutterTts flutterTts = FlutterTts();
   String text = '';
+  String langCode = "hi-IN";
   double _confidence = 1.0;
   // List<types.Message> _messages = [];
   final _user = const types.User(
@@ -58,6 +60,8 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
     _handleSendPressed(types.PartialText(text: 'Hi'));
     Provider.of<ProductProvider>(context, listen: false).isListening = false;
+    flutterTts.setSpeechRate(1.0);
+    flutterTts.setLanguage(langCode);
     _loadMessages();
   }
 
@@ -255,6 +259,7 @@ class _ChatPageState extends State<ChatPage> {
       isStart = false;
     });
     _addMessage(botMessage);
+    _speak(aiResponse['response']!);
   }
 
   Tags parseTags(String jsonString) {
@@ -299,7 +304,7 @@ class _ChatPageState extends State<ChatPage> {
       });
       _speech.listen(
         onResult: (result) {
-          print(result.recognizedWords);
+          // print(result.recognizedWords);
           setState(() {
             text = result.recognizedWords;
           });
@@ -330,12 +335,16 @@ class _ChatPageState extends State<ChatPage> {
         _isListening = false;
       });
 
-      print('last print is' + _speech.lastRecognizedWords);
+      // print('last print is' + _speech.lastRecognizedWords);
     }
     // Handle the case where stopListening is called without starting first
     else {
       print("Not currently listening");
     }
+  }
+
+  void _speak(String text) async {
+    await flutterTts.speak(text);
   }
 
   @override
