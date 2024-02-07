@@ -48,6 +48,9 @@ dependencies:
   flutter_tts: ^3.8.5
   http: ^1.2.0
   image_picker_web: ^3.1.1
+  badges: ^3.1.2
+  animated_checkmark: ^1.0.1
+  
 
 dev_dependencies:
   flutter_test:

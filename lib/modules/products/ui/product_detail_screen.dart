@@ -2,6 +2,7 @@ import 'package:build_for_bharat/basic_layout_widget.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/common/widgets/common_app_bar.dart';
 import 'package:build_for_bharat/modules/home/ui/chatbot_widget.dart';
+import 'package:build_for_bharat/modules/home/ui/widgets/PopUp.dart';
 import 'package:build_for_bharat/modules/products/ui/widgets/product_detail_widget.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/strings.dart';
@@ -10,9 +11,11 @@ import 'package:build_for_bharat/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:build_for_bharat/openai_service.dart';
 import 'package:build_for_bharat/productProvider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:animated_checkmark/animated_checkmark.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final ProductModel productModel;
@@ -22,11 +25,14 @@ class ProductDetailScreen extends StatefulWidget {
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
 }
 
-class _ProductDetailScreenState extends State<ProductDetailScreen> {
+class _ProductDetailScreenState extends State<ProductDetailScreen>
+    with SingleTickerProviderStateMixin {
   @override
   void initState() {
     // TODO: implement initState
+
     super.initState();
+
     String prompt = preparePrompt(widget.productModel);
     // print('prompt is ${prompt}');
     getProductDetails(prompt, context);
@@ -66,11 +72,20 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         SizedBox(
                           width: Gap.xxswg,
                         ),
-                        Text(
-                          widget.productModel.brand,
-                          style: Styles.tsw400xxs
-                              .apply(color: AppColors.primaryTextColor),
-                        ),
+                        GestureDetector(
+                          onTap: () => {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => PurchasePopup(),
+                              ),
+                            )
+                          },
+                          child: Text(
+                            widget.productModel.brand,
+                            style: Styles.tsw400xxs
+                                .apply(color: AppColors.primaryTextColor),
+                          ),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -87,6 +102,28 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           isProduct: true,
         ));
     // rightWidget: const ChatPage());
+  }
+
+  void showPurchaseBannerWithAnimation() {
+    AnimationController controller = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    Animation<double> animation = CurvedAnimation(
+      parent: controller,
+      curve: Curves.easeIn,
+    );
+    controller.forward();
+
+    Fluttertoast.showToast(
+      msg: 'Thanks for purchasing the product!',
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 3,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 
   Future<void> getProductDetails(String message, BuildContext context) async {
