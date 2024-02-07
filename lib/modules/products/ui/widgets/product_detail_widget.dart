@@ -19,10 +19,13 @@ class ProductDetailWidget extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             ProductImageDisplayWidget(),
+            SizedBox(
+              width: Gap.xswg,
+            ),
             ProductDetailDisplayWidget(
               productModel: productModel,
             ),
@@ -431,7 +434,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
       children: [
         Container(
           height: ScreenUtil.sh * 0.75,
-          width: ScreenUtil.sw * 0.32,
+          width: ScreenUtil.sw * 0.3,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -447,7 +450,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
           children: [
             Container(
               height: ScreenUtil.sh * 0.2,
-              width: ScreenUtil.sw * 0.1,
+              width: ScreenUtil.sw * 0.084,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
@@ -461,7 +464,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
             ),
             Container(
               height: ScreenUtil.sh * 0.2,
-              width: ScreenUtil.sw * 0.1,
+              width: ScreenUtil.sw * 0.084,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
@@ -475,7 +478,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
             ),
             Container(
               height: ScreenUtil.sh * 0.2,
-              width: ScreenUtil.sw * 0.1,
+              width: ScreenUtil.sw * 0.084,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
