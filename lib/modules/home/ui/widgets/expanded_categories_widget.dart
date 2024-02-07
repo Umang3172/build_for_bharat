@@ -1,3 +1,4 @@
+import 'package:build_for_bharat/modules/text_inpainting/ui/virtual_try_on_screen.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +11,13 @@ class ExpandedCategoriesWdget extends StatelessWidget {
     return Expanded(
       child: Row(
         children: [
-          Text(
-            'Categories',
-            style: Styles.tsw300s,
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const VirtualTryOnScreen())),
+            child: Text(
+              'Virtual Try On',
+              style: Styles.tsw300s,
+            ),
           ),
           SizedBox(
             width: Gap.xswg,
