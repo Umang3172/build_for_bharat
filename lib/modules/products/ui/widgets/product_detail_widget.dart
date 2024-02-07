@@ -23,6 +23,9 @@ class ProductDetailWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ProductImageDisplayWidget(),
+            SizedBox(
+              width: 20,
+            ),
             ProductDetailDisplayWidget(
               productModel: productModel,
             ),

@@ -42,13 +42,19 @@ class _MyProductList extends State<ProductList> {
                   childAspectRatio: 0.8),
               itemBuilder: (context, index) {
                 return GestureDetector(
-                    onTap: () => Navigator.of(context).push(
+                    onTap: () => Navigator.of(context)
+                            .push(
                           MaterialPageRoute(
                             builder: (context) => ProductDetailScreen(
                               productModel: curr_list[index],
                             ),
                           ),
-                        ),
+                        )
+                            .then((_) {
+                          // Code to execute when returning back from ProductDetailScreen
+                          Provider.of<ProductProvider>(context, listen: false)
+                              .notifyListeners();
+                        }),
                     child: ItemGridTile(productDetailModel: curr_list[index]));
               }));
     });

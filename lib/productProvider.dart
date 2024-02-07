@@ -2,12 +2,14 @@ import 'package:build_for_bharat/common/models/tags.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:build_for_bharat/openai_service.dart';
 
 class ProductProvider extends ChangeNotifier {
   List<ProductModel> prod_list = [];
   List<ProductModel> og_prod_list = [];
   List<types.Message> messages = [];
   bool isListening = false;
+  OpenAIService openAiService = OpenAIService();
 
   void initiateList(List<ProductModel> list) {
     og_prod_list = list;
@@ -27,16 +29,16 @@ class ProductProvider extends ChangeNotifier {
     prod_list = [];
     for (int i = 0; i < og_prod_list.length; i++) {
       ProductModel curr = og_prod_list[i];
-      print(curr.category.trim().toLowerCase() ==
-          tags.category.trim().toLowerCase());
-      print(tags.weather_suitable.trim().length == 0 ||
-          curr.weather_suitable.trim().toLowerCase() ==
-              tags.weather_suitable.trim().toLowerCase());
-      print(curr.color.trim().toLowerCase() == tags.color.trim().toLowerCase());
-      print(curr.occasion.trim().toLowerCase() ==
-          tags.occasion.trim().toLowerCase());
-      print(
-          "curr ${curr.category} ${curr.color} ${curr.occasion} ${curr.sizes} ${curr.weather_suitable}");
+      // print(curr.category.trim().toLowerCase() ==
+      //     tags.category.trim().toLowerCase());
+      // print(tags.weather_suitable.trim().length == 0 ||
+      //     curr.weather_suitable.trim().toLowerCase() ==
+      //         tags.weather_suitable.trim().toLowerCase());
+      // print(curr.color.trim().toLowerCase() == tags.color.trim().toLowerCase());
+      // print(curr.occasion.trim().toLowerCase() ==
+      //     tags.occasion.trim().toLowerCase());
+      // print(
+      // "curr ${curr.category} ${curr.color} ${curr.occasion} ${curr.sizes} ${curr.weather_suitable}");
       if ((tags.category.length == 0 ||
               (curr.category.trim().toLowerCase() ==
                   tags.category.trim().toLowerCase())) &&

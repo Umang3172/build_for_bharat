@@ -23,12 +23,13 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
-  initializeDateFormatting().then((_) => runApp(const ChatPage()));
+  // initializeDateFormatting()
+  //     .then((_) => runApp(const ChatPage(isProduct: false)));
 }
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
-
+  const ChatPage({super.key, required this.isProduct});
+  final bool isProduct;
   @override
   State<ChatPage> createState() => _ChatPageState();
 }
@@ -38,7 +39,7 @@ class _ChatPageState extends State<ChatPage> {
 
   // Use productProvider to call the function and update the list.
   // Example: productProvider.updateList(tags);
-  bool isStart = true;
+  bool isStart = false;
   stt.SpeechToText _speech = stt.SpeechToText();
   bool _isListening = false;
   FlutterTts flutterTts = FlutterTts();
@@ -51,14 +52,24 @@ class _ChatPageState extends State<ChatPage> {
   );
 
   final _bot = const types.User(id: '82091008-a484-4a89-ae75-a22bf8d6f3bd');
-
+  // bool isProduct = false;
   bool isDataLoading = false;
-  final OpenAIService openAIService = OpenAIService();
+  late final OpenAIService openAIService;
 
   @override
   void initState() {
     super.initState();
-    _handleSendPressed(types.PartialText(text: 'Hi'));
+
+    openAIService =
+        Provider.of<ProductProvider>(context, listen: false).openAiService;
+    if (!widget.isProduct) {
+      setState(() {
+        isStart = true;
+      });
+      _handleSendPressed(types.PartialText(text: 'Hi'));
+    }
+    print('init called ${widget.isProduct} ${isStart}');
+
     Provider.of<ProductProvider>(context, listen: false).isListening = false;
     flutterTts.setSpeechRate(1.0);
     flutterTts.setLanguage(langCode);
@@ -70,6 +81,7 @@ class _ChatPageState extends State<ChatPage> {
       Provider.of<ProductProvider>(context, listen: false)
           .messages
           .insert(0, message);
+      Provider.of<ProductProvider>(context, listen: false).notifyListeners();
     });
   }
 
@@ -139,7 +151,8 @@ class _ChatPageState extends State<ChatPage> {
     if (result != null) {
       final bytes = await result.readAsBytes();
       final image = await decodeImageFromList(bytes);
-
+      print(
+          'height : ${image.height.toDouble()}, name : ${result.name}, size : ${bytes.length}, uri : ${result.path}, width : ${image.width.toDouble()}');
       final message = types.ImageMessage(
         author: _user,
         createdAt: DateTime.now().millisecondsSinceEpoch,
@@ -254,6 +267,36 @@ class _ChatPageState extends State<ChatPage> {
     Tags tags = parseTags(aiResponse['tag']!);
 
     Provider.of<ProductProvider>(context, listen: false).updateList(tags, care);
+    if (care &&
+        Provider.of<ProductProvider>(context, listen: false).prod_list.length >
+            0) {
+      String url =
+          'https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d';
+      // _handleImageSelection()
+      // final result = await ImagePicker().pickImage(
+      //   imageQuality: 70,
+      //   maxWidth: 1440,
+      //   source: ImageSource.gallery,
+      // );
+
+      final message = types.ImageMessage(
+        author: _bot,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        id: const Uuid().v4(),
+        name: 'best pick',
+        size: 188021,
+        uri:
+            'https://img.freepik.com/free-vector/t-shirt-poster-design-with-illustraion-skeleton-professor_1284-36769.jpg',
+      );
+
+      setState(() {
+        Provider.of<ProductProvider>(context, listen: false)
+            .messages
+            .insert(0, message);
+        Provider.of<ProductProvider>(context, listen: false).notifyListeners();
+      });
+      // _handleImageSelection();
+    }
     setState(() {
       isDataLoading = false;
       isStart = false;
@@ -277,11 +320,9 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _loadMessages() async {
-    final response = await rootBundle.loadString('assets/messages.json');
-    final messages = (jsonDecode(response) as List)
-        .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
-        .toList();
-
+    // final response = await rootBundle.loadString('assets/messages.json');
+    final messages =
+        Provider.of<ProductProvider>(context, listen: false).messages;
     setState(() {
       Provider.of<ProductProvider>(context, listen: false).messages = messages;
     });
