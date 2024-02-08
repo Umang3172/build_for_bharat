@@ -252,6 +252,7 @@ class _ChatPageState extends State<ChatPage> {
       isDataLoading = true;
     });
     _addMessage(textMessage);
+    bool addprod = containsSubsequence(message.text);
 
     Map<String, String> aiResponse =
         await openAIService.chatGPTAPI(message.text, isStart);
@@ -293,6 +294,7 @@ class _ChatPageState extends State<ChatPage> {
         Provider.of<ProductProvider>(context, listen: false)
             .messages
             .insert(0, message);
+
         Provider.of<ProductProvider>(context, listen: false).notifyListeners();
       });
       // _handleImageSelection();
@@ -302,7 +304,36 @@ class _ChatPageState extends State<ChatPage> {
       isStart = false;
     });
     _addMessage(botMessage);
-    _speak(aiResponse['response']!);
+    if (addprod) {
+      Provider.of<ProductProvider>(context, listen: false).addtoCart = true;
+      print(Provider.of<ProductProvider>(context, listen: false).addtoCart);
+      Provider.of<ProductProvider>(context, listen: false).notifyListeners();
+    }
+    // _speak(aiResponse['response']!);
+  }
+
+  bool containsSubsequence(String text) {
+    final words = text.toLowerCase().split(' ');
+
+    bool addFound = false;
+    bool toFound = false;
+    bool cartFound = false;
+
+    for (final word in words) {
+      if (word == 'add') {
+        addFound = true;
+      } else if (word == 'to' && addFound) {
+        toFound = true;
+      } else if (word == 'cart' && toFound) {
+        cartFound = true;
+      }
+
+      if (addFound && toFound && cartFound) {
+        return true; // Subsequence found
+      }
+    }
+
+    return false; // Subsequence not found
   }
 
   Tags parseTags(String jsonString) {
@@ -341,6 +372,7 @@ class _ChatPageState extends State<ChatPage> {
     if (available) {
       setState(() {
         Provider.of<ProductProvider>(context, listen: false).isListening = true;
+        // Provider.of<ProductProvider>(context,listen:false).tags.cart
         _isListening = true;
       });
       _speech.listen(

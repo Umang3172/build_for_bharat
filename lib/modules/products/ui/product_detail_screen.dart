@@ -2,7 +2,7 @@ import 'package:build_for_bharat/basic_layout_widget.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/common/widgets/common_app_bar.dart';
 import 'package:build_for_bharat/modules/home/ui/chatbot_widget.dart';
-import 'package:build_for_bharat/modules/home/ui/widgets/PopUp.dart';
+
 import 'package:build_for_bharat/modules/products/ui/widgets/product_detail_widget.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/strings.dart';
@@ -27,81 +27,164 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen>
     with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
   @override
   void initState() {
     // TODO: implement initState
 
     super.initState();
-
+    _controller =
+        AnimationController(duration: Duration(seconds: 3), vsync: this);
+    _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
+    _controller.forward();
     String prompt = preparePrompt(widget.productModel);
     // print('prompt is ${prompt}');
     getProductDetails(prompt, context);
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final productProvider =
+        Provider.of<ProductProvider>(context, listen: false);
+    if (productProvider.addtoCart) {
+      print('dialog');
+      // Future.microtask(() => _dialogBuilder(context));
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BasicLayoutWidget(
-        leftWidget: SingleChildScrollView(
-          child: Column(
-            children: [
-              CommonAppBar(),
-              SizedBox(
-                height: Gap.xxxxshg,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          widget.productModel.category,
-                          style: Styles.tsw400xxs
-                              .apply(color: AppColors.primaryTextColor),
-                        ),
-                        SizedBox(
-                          width: Gap.xxswg,
-                        ),
-                        Container(
-                          width: 2,
-                          height: 2,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.secondaryTextColor),
-                        ),
-                        SizedBox(
-                          width: Gap.xxswg,
-                        ),
-                        GestureDetector(
-                          onTap: () => {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => PurchasePopup(),
-                              ),
-                            )
-                          },
-                          child: Text(
-                            widget.productModel.brand,
+    return Consumer<ProductProvider>(
+        builder: (context, productProvider, child) {
+      // print(Provider.of<ProductProvider>(context, listen: false).addtoCart);
+      if (Provider.of<ProductProvider>(context, listen: false).addtoCart) {
+        // _dialogBuilder(context);
+        Future.microtask(() => _dialogBuilder(context));
+      }
+      return BasicLayoutWidget(
+          leftWidget: SingleChildScrollView(
+            child: Column(
+              children: [
+                CommonAppBar(),
+                SizedBox(
+                  height: Gap.xxxxshg,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            widget.productModel.category,
                             style: Styles.tsw400xxs
                                 .apply(color: AppColors.primaryTextColor),
                           ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: Gap.xxshg,
-                    ),
-                    ProductDetailWidget(productModel: widget.productModel)
-                  ],
-                ),
-              )
-            ],
+                          SizedBox(
+                            width: Gap.xxswg,
+                          ),
+                          Container(
+                            width: 2,
+                            height: 2,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.secondaryTextColor),
+                          ),
+                          SizedBox(
+                            width: Gap.xxswg,
+                          ),
+                          GestureDetector(
+                            onTap: () => {
+                              _dialogBuilder(context),
+                            },
+                            child: Text(
+                              widget.productModel.brand,
+                              style: Styles.tsw400xxs
+                                  .apply(color: AppColors.primaryTextColor),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: Gap.xxshg,
+                      ),
+                      ProductDetailWidget(productModel: widget.productModel)
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        rightWidget: ChatPage(
-          isProduct: true,
-        ));
-    // rightWidget: const ChatPage());
+          rightWidget: ChatPage(
+            isProduct: true,
+          ));
+      // rightWidget: const ChatPage());
+    });
+  }
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    Provider.of<ProductProvider>(context, listen: false).addtoCart = false;
+    Provider.of<ProductProvider>(context, listen: false).alterMessages();
+
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Stack(
+          children: [
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ),
+            ),
+            Center(
+              child: Material(
+                elevation: 8.0,
+                borderRadius: BorderRadius.circular(8.0),
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  width: 250.0,
+                  height: 200.0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AnimatedBuilder(
+                        animation: _animation,
+                        builder: (context, child) {
+                          return Transform.scale(
+                            scale: _animation.value,
+                            child: AnimatedCheckmark(
+                              active: true,
+                              weight: 10,
+                              size: const Size.square(50),
+                              color: Colors.greenAccent,
+                              style: CheckmarkStyle.round,
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(height: 20.0),
+                      Text(
+                        'Product added to cart',
+                        style: TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void showPurchaseBannerWithAnimation() {

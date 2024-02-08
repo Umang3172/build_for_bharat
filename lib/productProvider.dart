@@ -9,6 +9,7 @@ class ProductProvider extends ChangeNotifier {
   List<ProductModel> og_prod_list = [];
   List<types.Message> messages = [];
   bool isListening = false;
+  bool addtoCart = false;
   OpenAIService openAiService = OpenAIService();
   Tags tags = Tags(
       cart: [],

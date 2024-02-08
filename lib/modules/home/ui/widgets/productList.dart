@@ -1,3 +1,4 @@
+import 'package:build_for_bharat/common/models/tags.dart';
 import 'package:build_for_bharat/modules/products/ui/product_detail_screen.dart';
 import 'package:build_for_bharat/utils/json_parsing.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
@@ -31,32 +32,121 @@ class _MyProductList extends State<ProductList> {
         builder: (context, productProvider, child) {
       curr_list = productProvider.prod_list;
       return SingleChildScrollView(
-          child: GridView.builder(
-              shrinkWrap: true,
-              itemCount: curr_list.length,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: ScreenUtil.sh * 0.01,
-                  mainAxisSpacing: ScreenUtil.sh * 0.04,
-                  childAspectRatio: 0.8),
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                    onTap: () => Navigator.of(context)
-                            .push(
-                          MaterialPageRoute(
-                            builder: (context) => ProductDetailScreen(
-                              productModel: curr_list[index],
-                            ),
+          child: Column(children: [
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () => {
+                Provider.of<ProductProvider>(context, listen: false).updateList(
+                    Tags(
+                        cart: [],
+                        category: '',
+                        color: '',
+                        sizes: '',
+                        weather_suitable: '',
+                        occasion: '',
+                        brand: ''),
+                    true),
+              },
+              child: Chip(
+                label: Text('All'),
+              ),
+            ),
+            SizedBox(
+              width: 25,
+            ),
+            GestureDetector(
+              onTap: () => {
+                Provider.of<ProductProvider>(context, listen: false).updateList(
+                    Tags(
+                        cart: [],
+                        category: 'tshirt',
+                        color: '',
+                        sizes: '',
+                        weather_suitable: '',
+                        occasion: '',
+                        brand: ''),
+                    true),
+              },
+              child: Chip(
+                label: Text('Tshirt'),
+              ),
+            ),
+            SizedBox(
+              width: 25,
+            ),
+            GestureDetector(
+              onTap: () => {
+                Provider.of<ProductProvider>(context, listen: false).updateList(
+                    Tags(
+                        cart: [],
+                        category: 'shirt',
+                        color: '',
+                        sizes: '',
+                        weather_suitable: '',
+                        occasion: '',
+                        brand: ''),
+                    true),
+              },
+              child: Chip(
+                label: Text('Shirt'),
+              ),
+            ),
+            SizedBox(
+              width: 25,
+            ),
+            GestureDetector(
+              onTap: () => {
+                Provider.of<ProductProvider>(context, listen: false).updateList(
+                    Tags(
+                        cart: [],
+                        category: 'pant',
+                        color: '',
+                        sizes: '',
+                        weather_suitable: '',
+                        occasion: '',
+                        brand: ''),
+                    true),
+              },
+              child: Chip(
+                label: Text('Pants'),
+              ),
+            ),
+            SizedBox(
+              width: 25,
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 25,
+        ),
+        GridView.builder(
+            shrinkWrap: true,
+            itemCount: curr_list.length,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                crossAxisSpacing: ScreenUtil.sh * 0.01,
+                mainAxisSpacing: ScreenUtil.sh * 0.04,
+                childAspectRatio: 0.8),
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                  onTap: () => Navigator.of(context)
+                          .push(
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailScreen(
+                            productModel: curr_list[index],
                           ),
-                        )
-                            .then((_) {
-                          // Code to execute when returning back from ProductDetailScreen
-                          Provider.of<ProductProvider>(context, listen: false)
-                              .notifyListeners();
-                        }),
-                    child: ItemGridTile(productDetailModel: curr_list[index]));
-              }));
+                        ),
+                      )
+                          .then((_) {
+                        // Code to execute when returning back from ProductDetailScreen
+                        Provider.of<ProductProvider>(context, listen: false)
+                            .notifyListeners();
+                      }),
+                  child: ItemGridTile(productDetailModel: curr_list[index]));
+            })
+      ]));
     });
   }
 }
