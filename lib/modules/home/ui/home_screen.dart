@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    print('hello again');
+    // print('hello again');
     return BasicLayoutWidget(
         leftWidget: const HomeScreenLeftWidget(),
         rightWidget: ChatPage(isProduct: false));

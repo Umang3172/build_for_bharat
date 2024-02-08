@@ -22,7 +22,9 @@ class ProductDetailWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            ProductImageDisplayWidget(),
+            ProductImageDisplayWidget(
+              productModel: productModel,
+            ),
             SizedBox(
               width: 20,
             ),
@@ -159,7 +161,7 @@ class CommentsTile extends StatelessWidget {
             shape: BoxShape.circle,
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/header_bg_girl.jpg'),
+              image: AssetImage('images/header_bg_girl.jpg'),
             ),
           ),
         ),
@@ -419,8 +421,8 @@ class _ProductDetailDisplayWidgetState
 }
 
 class ProductImageDisplayWidget extends StatefulWidget {
-  const ProductImageDisplayWidget({super.key});
-
+  const ProductImageDisplayWidget({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   State<ProductImageDisplayWidget> createState() =>
       ProductImageDisplayWidgetState();
@@ -439,7 +441,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/tshirt_person_1.jpg'),
+              image: NetworkImage(widget.productModel.productImg),
             ),
           ),
         ),
@@ -455,7 +457,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                  image: AssetImage('images/tshirt_person_1.jpg'),
                 ),
               ),
             ),
@@ -469,7 +471,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                  image: AssetImage('images/tshirt_person_1.jpg'),
                 ),
               ),
             ),
@@ -483,7 +485,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                  image: AssetImage('images/tshirt_person_1.jpg'),
                 ),
               ),
             ),

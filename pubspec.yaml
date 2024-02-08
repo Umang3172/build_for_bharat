@@ -77,9 +77,9 @@ flutter:
 
   assets:
     - assets/
-    # - assets/icons/
-    # - assets/messages.json
-    # - assets/products.json
+    - assets/icons/
+    - assets/messages.json
+    - assets/products.json
     # - ass
 
   # To add assets to your application, add an assets section, like this:
