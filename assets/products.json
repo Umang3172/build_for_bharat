@@ -310,6 +310,7 @@
                 "title": "Unique Color",
                 "details": "Burgundy color is unique and attractive.",
                 "rating": 4.4
+
             }
         ],
         "cloth_type": "Cotton",
@@ -413,7 +414,7 @@
         "image_url": "https://example.com/tshirt9_image.jpg",
         "name": "Cozy Wool Blend Henley",
         "brand_name": "HRX",
-        "color": "Navy Blue",
+        "color": "Blue",
         "price": 950,
         "sizes_available": [
             "S",
@@ -458,7 +459,7 @@
         "image_url": "https://example.com/tshirt10_image.jpg",
         "name": "Merino Wool Crew Neck Tee",
         "brand_name": "Allen Solly",
-        "color": "Burgundy",
+        "color": "Green",
         "price": 1100,
         "sizes_available": [
             "S",
@@ -730,7 +731,7 @@
         "image_url": "https://example.com/shirt5_image.jpg",
         "name": "Formal Slim-Fit Dress Shirt",
         "brand_name": "Allen Solly",
-        "color": "Light Blue",
+        "color": "Blue",
         "price": 950,
         "sizes_available": [
             "S",
@@ -911,7 +912,7 @@
         "image_url": "https://example.com/shirt9_image.jpg",
         "name": "Linen Blend Striped Shirt",
         "brand_name": "Max",
-        "color": "Navy Blue",
+        "color": "Blue",
         "price": 620,
         "sizes_available": [
             "S",
@@ -1138,7 +1139,7 @@
         "image_url": "https://example.com/pant4_image.jpg",
         "name": "Casual Cargo Joggers",
         "brand_name": "H&M",
-        "color": "Olive Green",
+        "color": "Green",
         "price": 850,
         "sizes_available": [
             "30",
@@ -1228,7 +1229,7 @@
         "image_url": "https://example.com/pant6_image.jpg",
         "name": "Stretchable Slim-Fit Jeans",
         "brand_name": "Max",
-        "color": "Dark Blue",
+        "color": "Blue",
         "price": 1100,
         "sizes_available": [
             "30",
@@ -1319,7 +1320,7 @@
         "image_url": "https://example.com/pant8_image.jpg",
         "name": "Formal Flat-Front Dress Trousers",
         "brand_name": "H&M",
-        "color": "Navy Blue",
+        "color": "Blue",
         "price": 1300,
         "sizes_available": [
             "30",
@@ -1365,7 +1366,7 @@
         "image_url": "https://example.com/pant9_image.jpg",
         "name": "Casual Cotton Drawstring Pants",
         "brand_name": "Max",
-        "color": "Beige",
+        "color": "White",
         "price": 800,
         "sizes_available": [
             "30",
@@ -1410,7 +1411,7 @@
         "image_url": "https://example.com/pant10_image.jpg",
         "name": "Woolen Pleated Front Formal Pants",
         "brand_name": "Allen Solly",
-        "color": "Charcoal Grey",
+        "color": "Grey",
         "price": 1400,
         "sizes_available": [
             "30",

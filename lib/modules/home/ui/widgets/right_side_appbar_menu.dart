@@ -55,7 +55,7 @@ class RightSideAppbarMenu extends StatelessWidget {
               ),
               const SizedBox(width: 3),
               Text(
-                'Login',
+                'Cart',
                 style: Styles.tsw300s,
               ),
               const SizedBox(width: 3),
