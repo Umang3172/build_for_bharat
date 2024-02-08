@@ -11,9 +11,9 @@ class Cart {
 
   factory Cart.fromJson(Map<String, dynamic> json) {
     return Cart(
-      title: json['title'] ?? '',
-      count: json['count'] as int? ?? 0,
-      total_price: json['total_price'] as int? ?? 0,
+      title: json['product_name'] ?? '',
+      count: json['quantity'] as int? ?? 0,
+      total_price: json['total_cost'] as int? ?? 0,
     );
   }
 }

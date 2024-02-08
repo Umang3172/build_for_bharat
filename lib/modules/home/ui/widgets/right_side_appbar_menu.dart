@@ -1,3 +1,4 @@
+import 'package:build_for_bharat/modules/order/ui/order_cart.dart';
 import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/styles.dart';
@@ -37,8 +38,8 @@ class RightSideAppbarMenu extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  // Handle the tap here
-                  // Navigator.pushNamed(context, '/cart');
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const OrderCart()));
                 },
                 child: badges.Badge(
                   position: badges.BadgePosition.bottomStart(),
