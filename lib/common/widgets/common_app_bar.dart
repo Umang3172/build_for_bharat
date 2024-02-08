@@ -1,5 +1,6 @@
 import 'package:build_for_bharat/modules/home/ui/widgets/expanded_categories_widget.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/right_side_appbar_menu.dart';
+import 'package:build_for_bharat/modules/order/ui/order_cart.dart';
 import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
 import 'package:build_for_bharat/utils/styles.dart';
@@ -31,8 +32,8 @@ class CommonAppBar extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    // Handle the tap here
-                    // Navigator.pushNamed(context, '/cart');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const OrderCart()));
                   },
                   child: badges.Badge(
                     position: badges.BadgePosition.bottomStart(),
