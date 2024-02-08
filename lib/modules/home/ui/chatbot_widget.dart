@@ -302,7 +302,7 @@ class _ChatPageState extends State<ChatPage> {
       isStart = false;
     });
     _addMessage(botMessage);
-    _speak(aiResponse['response']!);
+    // _speak(aiResponse['response']!);
   }
 
   Tags parseTags(String jsonString) {

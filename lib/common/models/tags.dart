@@ -1,4 +1,4 @@
-import 'package:build_for_bharat/common/models/Cart.dart';
+import 'package:build_for_bharat/common/models/cart.dart';
 import 'package:flutter/material.dart';
 
 class Tags {
