@@ -1,5 +1,6 @@
 import 'package:build_for_bharat/common/models/customerReviews.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
+import 'package:build_for_bharat/modules/home/ui/widgets/glowing_button.dart';
 import 'package:build_for_bharat/modules/products/enums/product_bottom_tabs_enum.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
@@ -356,7 +357,7 @@ class _ProductDetailDisplayWidgetState
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                width: ScreenUtil.sw * 0.16,
+                width: ScreenUtil.sw * 0.13,
                 height: ScreenUtil.sh * 0.06,
                 child: ElevatedButton(
                   onPressed: () {},
@@ -388,16 +389,10 @@ class _ProductDetailDisplayWidgetState
               SizedBox(
                 width: 12,
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.primaryColor, width: 1),
-                ),
-                child: const Icon(
-                  Icons.favorite_outline,
-                ),
-              )
+              GlowingButton(
+                color1: Colors.pinkAccent,
+                color2: Colors.indigoAccent,
+              ),
             ],
           ),
           SizedBox(
