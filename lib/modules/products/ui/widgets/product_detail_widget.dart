@@ -205,6 +205,30 @@ class CommentsTile extends StatelessWidget {
               customerReviews.desc,
               style: Styles.tsw300xs.apply(color: AppColors.secondaryTextColor),
             ),
+            SizedBox(
+              height: Gap.xxxshg,
+            ),
+            SizedBox(
+              height: ScreenUtil.sh * 0.1,
+              width: ScreenUtil.sw * 0.2,
+              child: ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) => SizedBox(
+                  width: Gap.xxswg,
+                ),
+                itemCount: 4,
+              ),
+            )
           ],
         )
       ],
