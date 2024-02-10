@@ -18,6 +18,7 @@ class ProductProvider extends ChangeNotifier {
       sizes: '',
       weather_suitable: '',
       occasion: '',
+      max_price: '',
       brand: '');
 
   void initiateList(List<ProductModel> list) {
@@ -74,7 +75,9 @@ class ProductProvider extends ChangeNotifier {
                   tags.weather_suitable.trim().toLowerCase()) &&
           (tags.brand.length == 0 ||
               curr.brand.trim().toLowerCase() ==
-                  tags.brand.trim().toLowerCase())) {
+                  tags.brand.trim().toLowerCase()) &&
+          (tags.max_price.length == 0 ||
+              curr.price <= int.parse(tags.max_price.trim()))) {
         prod_list.add(curr);
       }
     }
