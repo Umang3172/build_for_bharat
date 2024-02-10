@@ -256,6 +256,14 @@ class _ChatPageState extends State<ChatPage> {
 
     Map<String, String> aiResponse =
         await openAIService.chatGPTAPI(message.text, isStart);
+    // aiResponse['response'] =
+    //     aiResponse['response']!.replaceAll("here is the current tag json", "");
+    // aiResponse['response'] =
+    //     aiResponse['response']!.replaceAll("Here is your current tag json", "");
+    // aiResponse['response'] =
+    //     aiResponse['response']!.replaceAll("Here is the current tag json", "");
+    // aiResponse['response'] =
+    //     aiResponse['response']!.replaceAll("here is your current tag json", "");
 
     final botMessage = types.TextMessage(
         author: _bot,
@@ -309,7 +317,7 @@ class _ChatPageState extends State<ChatPage> {
       print(Provider.of<ProductProvider>(context, listen: false).addtoCart);
       Provider.of<ProductProvider>(context, listen: false).notifyListeners();
     }
-    // _speak(aiResponse['response']!);
+    _speak(aiResponse['response']!);
   }
 
   bool containsSubsequence(String text) {

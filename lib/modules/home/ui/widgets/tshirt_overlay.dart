@@ -79,31 +79,29 @@ class _TShirtTryOnPageState extends State<TShirtTryOnPage> {
                     ),
                   ),
           ),
-          if (_showOverlay)
-            Center(
-              child: Transform.scale(
-                scale: _overlayScale,
-                child: GestureDetector(
-                  onPanUpdate: (details) {
-                    setState(() {
-                      // Update the position of the overlay based on the drag update
-                      _overlayPosition += details.delta;
-                    });
-                  },
-                  child: Transform.scale(
-                    scale: _overlayScale,
-                    child: Transform.translate(
-                      offset: _overlayPosition,
-                      child: Image.asset(
-                        'blue_bg.png', // Adjust the image path accordingly
-                        width: 200,
-                        height: 200,
+          GestureDetector(
+            onPanUpdate: (details) {
+              setState(() {
+                // Update the position of the overlay based on the drag update
+                _overlayPosition += details.delta;
+              });
+            },
+            child: _showOverlay
+                ? Center(
+                    child: Transform.scale(
+                      scale: _overlayScale,
+                      child: Transform.translate(
+                        offset: _overlayPosition,
+                        child: Image.asset(
+                          'blue_bg.png', // Adjust the image path accordingly
+                          width: 200,
+                          height: 200,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-            ),
+                  )
+                : SizedBox(), // Hide the overlay if _showOverlay is false
+          ),
         ],
       ),
       floatingActionButton: Column(
@@ -123,6 +121,15 @@ class _TShirtTryOnPageState extends State<TShirtTryOnPage> {
           FloatingActionButton(
             onPressed: _zoomOut,
             child: Icon(Icons.zoom_out),
+          ),
+          SizedBox(height: 16),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _showOverlay = !_showOverlay; // Toggle the overlay visibility
+              });
+            },
+            child: Icon(_showOverlay ? Icons.visibility : Icons.visibility_off),
           ),
         ],
       ),
