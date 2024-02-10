@@ -36,9 +36,8 @@ class ItemGridTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_4.jpg'),
-                ),
+                    fit: BoxFit.cover,
+                    image: NetworkImage(productDetailModel.productImg)),
               ),
             ),
             Positioned(

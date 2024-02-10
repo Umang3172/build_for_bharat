@@ -1,5 +1,6 @@
 import 'package:build_for_bharat/common/models/customerReviews.dart';
 import 'package:build_for_bharat/common/models/product_model.dart';
+import 'package:build_for_bharat/modules/home/ui/widgets/glowing_button.dart';
 import 'package:build_for_bharat/modules/products/enums/product_bottom_tabs_enum.dart';
 import 'package:build_for_bharat/utils/gap.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
@@ -22,7 +23,9 @@ class ProductDetailWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            ProductImageDisplayWidget(),
+            ProductImageDisplayWidget(
+              productModel: productModel,
+            ),
             SizedBox(
               width: 20,
             ),
@@ -159,7 +162,7 @@ class CommentsTile extends StatelessWidget {
             shape: BoxShape.circle,
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/header_bg_girl.jpg'),
+              image: AssetImage('images/header_bg_girl.jpg'),
             ),
           ),
         ),
@@ -378,7 +381,7 @@ class _ProductDetailDisplayWidgetState
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                width: ScreenUtil.sw * 0.16,
+                width: ScreenUtil.sw * 0.13,
                 height: ScreenUtil.sh * 0.06,
                 child: ElevatedButton(
                   onPressed: () {},
@@ -410,16 +413,10 @@ class _ProductDetailDisplayWidgetState
               SizedBox(
                 width: 12,
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.primaryColor, width: 1),
-                ),
-                child: const Icon(
-                  Icons.favorite_outline,
-                ),
-              )
+              GlowingButton(
+                color1: Colors.pinkAccent,
+                color2: Colors.indigoAccent,
+              ),
             ],
           ),
           SizedBox(
@@ -443,8 +440,8 @@ class _ProductDetailDisplayWidgetState
 }
 
 class ProductImageDisplayWidget extends StatefulWidget {
-  const ProductImageDisplayWidget({super.key});
-
+  const ProductImageDisplayWidget({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   State<ProductImageDisplayWidget> createState() =>
       ProductImageDisplayWidgetState();
@@ -463,7 +460,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/tshirt_person_1.jpg'),
+              image: NetworkImage(widget.productModel.productImg),
             ),
           ),
         ),
@@ -479,7 +476,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                  image: AssetImage('images/tshirt_person_1.jpg'),
                 ),
               ),
             ),
@@ -493,7 +490,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                  image: AssetImage('images/tshirt_person_1.jpg'),
                 ),
               ),
             ),
@@ -507,7 +504,7 @@ class ProductImageDisplayWidgetState extends State<ProductImageDisplayWidget> {
                 borderRadius: BorderRadius.circular(15),
                 image: const DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/tshirt_person_1.jpg'),
+                  image: AssetImage('images/tshirt_person_1.jpg'),
                 ),
               ),
             ),

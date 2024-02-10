@@ -39,9 +39,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
         AnimationController(duration: Duration(seconds: 3), vsync: this);
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _controller.forward();
-    String prompt = preparePrompt(widget.productModel);
-    // print('prompt is ${prompt}');
-    getProductDetails(prompt, context);
+    // String prompt = preparePrompt(widget.productModel);
+    // // print('prompt is ${prompt}');
+    // getProductDetails(prompt, context);
   }
 
   @override

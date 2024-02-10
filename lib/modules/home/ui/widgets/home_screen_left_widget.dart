@@ -108,7 +108,7 @@ class HeaderStackWidget extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/header_bg_girl.jpg'),
+              image: AssetImage('images/header_bg_girl.jpg'),
             ),
           ),
         ),

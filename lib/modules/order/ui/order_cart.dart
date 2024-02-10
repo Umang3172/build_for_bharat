@@ -61,7 +61,7 @@ class _OrderCartState extends State<OrderCart> {
                 ? Center(
                     child: Column(
                       children: [
-                        Lottie.asset('assets/animations/empty_cart.json'),
+                        Lottie.asset('animations/empty_cart.json'),
                         SizedBox(
                           height: Gap.xxshg,
                         ),

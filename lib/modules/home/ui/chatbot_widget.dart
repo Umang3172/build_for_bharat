@@ -81,7 +81,7 @@ class _ChatPageState extends State<ChatPage> {
       Provider.of<ProductProvider>(context, listen: false)
           .messages
           .insert(0, message);
-      Provider.of<ProductProvider>(context, listen: false).notifyListeners();
+      Provider.of<ProductProvider>(context, listen: false).alterMessages();
     });
   }
 
