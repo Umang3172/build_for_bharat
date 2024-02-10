@@ -30,6 +30,17 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void seachUpdate(String value) {
+    prod_list = og_prod_list
+        .where(
+          (element) =>
+              element.brand.toLowerCase().contains(value) ||
+              element.title.toLowerCase().contains(value),
+        )
+        .toList();
+    notifyListeners();
+  }
+
   void updateList(Tags tags1, bool include) {
     if (!include) {
       return;
