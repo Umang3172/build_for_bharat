@@ -95,7 +95,7 @@ class _TShirtTryOnPageState extends State<TShirtTryOnPage> {
                     child: Transform.translate(
                       offset: _overlayPosition,
                       child: Image.asset(
-                        'tshirt2_bg.png', // Adjust the image path accordingly
+                        'blue_bg.png', // Adjust the image path accordingly
                         width: 200,
                         height: 200,
                       ),

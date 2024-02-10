@@ -125,7 +125,7 @@ class _VirtualTryOnScreenState extends State<VirtualTryOnScreen> {
 
                     setState(() {});
                   },
-                  child: Text("Select Reference Image")),
+                  child: Text("Select Reference Image  (Optional)")),
               SizedBox(
                 height: Gap.xxshg,
               ),
@@ -153,8 +153,8 @@ class _VirtualTryOnScreenState extends State<VirtualTryOnScreen> {
                   if (snapshot.data != null) {
                     return Image.memory(
                       snapshot.data!,
-                      width: ScreenUtil.sw * 0.2,
-                      height: ScreenUtil.sh * 0.2,
+                      width: ScreenUtil.sw * 0.6,
+                      height: ScreenUtil.sh * 0.4,
                     );
                   }
                   if (snapshot.connectionState == ConnectionState.waiting) {

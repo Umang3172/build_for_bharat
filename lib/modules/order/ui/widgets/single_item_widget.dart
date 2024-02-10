@@ -19,8 +19,8 @@ class SingleItemWidget extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/images/tshirt_person_1.jpg',
+            child: Image.network(
+              'https://plus.unsplash.com/premium_photo-1682096261732-88a83f8bb20b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Ymx1ZSUyMHRzaGlydHxlbnwwfHwwfHx8MA%3D%3D',
               fit: BoxFit.cover,
               height: ScreenUtil.sh * 0.25,
               width: ScreenUtil.sw * 0.1,

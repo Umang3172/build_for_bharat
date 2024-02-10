@@ -43,6 +43,7 @@ class TextInpaintingService {
     var request = http.MultipartRequest('POST', Uri.parse(url))
       ..headers['x-api-key'] = apiKey
       ..fields['prompt'] = promptText;
+    // ..fields['style_preset'] = "photographic";
 
     var response = await client.send(request);
 
