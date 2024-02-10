@@ -5,6 +5,7 @@ import 'package:build_for_bharat/common/models/product_model.dart';
 import 'package:build_for_bharat/modules/home/ui/widgets/item_grid_tile.dart';
 import 'package:build_for_bharat/productProvider.dart';
 import 'package:build_for_bharat/utils/screen_util.dart';
+import 'package:build_for_bharat/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,11 +22,18 @@ class ProductList extends StatefulWidget {
 }
 
 class _MyProductList extends State<ProductList> {
+  final TextEditingController _searchTexteEditingController =
+      TextEditingController();
+  List<ProductModel> curr_list = [];
+
+  void updateContent(String value) {
+    Provider.of<ProductProvider>(context, listen: false).seachUpdate(value);
+  }
+
   @override
   Widget build(BuildContext context) {
     JsonParsing jsonParsing = JsonParsing();
 
-    List<ProductModel> curr_list = [];
     // jsonParsing.currList(widget.products, selectedUserList!);
 
     return Consumer<ProductProvider>(
@@ -34,87 +42,113 @@ class _MyProductList extends State<ProductList> {
       return SingleChildScrollView(
           child: Column(children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            GestureDetector(
-              onTap: () => {
-                Provider.of<ProductProvider>(context, listen: false).updateList(
-                    Tags(
-                        cart: [],
-                        category: '',
-                        color: '',
-                        sizes: '',
-                        weather_suitable: '',
-                        occasion: '',
-                        brand: ''),
-                    true),
-              },
-              child: Chip(
-                label: Text('All'),
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () => {
+                    Provider.of<ProductProvider>(context, listen: false)
+                        .updateList(
+                            Tags(
+                                cart: [],
+                                category: '',
+                                color: '',
+                                sizes: '',
+                                weather_suitable: '',
+                                occasion: '',
+                                brand: ''),
+                            true),
+                  },
+                  child: Chip(
+                    label: Text('All'),
+                  ),
+                ),
+                SizedBox(
+                  width: 25,
+                ),
+                GestureDetector(
+                  onTap: () => {
+                    Provider.of<ProductProvider>(context, listen: false)
+                        .updateList(
+                            Tags(
+                                cart: [],
+                                category: 'tshirt',
+                                color: '',
+                                sizes: '',
+                                weather_suitable: '',
+                                occasion: '',
+                                brand: ''),
+                            true),
+                  },
+                  child: Chip(
+                    label: Text('Tshirt'),
+                  ),
+                ),
+                SizedBox(
+                  width: 25,
+                ),
+                GestureDetector(
+                  onTap: () => {
+                    Provider.of<ProductProvider>(context, listen: false)
+                        .updateList(
+                            Tags(
+                                cart: [],
+                                category: 'shirt',
+                                color: '',
+                                sizes: '',
+                                weather_suitable: '',
+                                occasion: '',
+                                brand: ''),
+                            true),
+                  },
+                  child: Chip(
+                    label: Text('Shirt'),
+                  ),
+                ),
+                SizedBox(
+                  width: 25,
+                ),
+                GestureDetector(
+                  onTap: () => {
+                    Provider.of<ProductProvider>(context, listen: false)
+                        .updateList(
+                            Tags(
+                                cart: [],
+                                category: 'pant',
+                                color: '',
+                                sizes: '',
+                                weather_suitable: '',
+                                occasion: '',
+                                brand: ''),
+                            true),
+                  },
+                  child: Chip(
+                    label: Text('Pants'),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
-              width: 25,
-            ),
-            GestureDetector(
-              onTap: () => {
-                Provider.of<ProductProvider>(context, listen: false).updateList(
-                    Tags(
-                        cart: [],
-                        category: 'tshirt',
-                        color: '',
-                        sizes: '',
-                        weather_suitable: '',
-                        occasion: '',
-                        brand: ''),
-                    true),
-              },
-              child: Chip(
-                label: Text('Tshirt'),
+              width: ScreenUtil.sw * 0.2,
+              height: 50,
+              child: TextField(
+                controller: _searchTexteEditingController,
+                onChanged: (value) => updateContent(value),
+                decoration: InputDecoration(
+                  hintText: 'Enter your text',
+                  prefixIcon: Icon(Icons.search),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: AppColors.primaryColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: AppColors.primaryColor),
+                  ),
+                ),
               ),
-            ),
-            SizedBox(
-              width: 25,
-            ),
-            GestureDetector(
-              onTap: () => {
-                Provider.of<ProductProvider>(context, listen: false).updateList(
-                    Tags(
-                        cart: [],
-                        category: 'shirt',
-                        color: '',
-                        sizes: '',
-                        weather_suitable: '',
-                        occasion: '',
-                        brand: ''),
-                    true),
-              },
-              child: Chip(
-                label: Text('Shirt'),
-              ),
-            ),
-            SizedBox(
-              width: 25,
-            ),
-            GestureDetector(
-              onTap: () => {
-                Provider.of<ProductProvider>(context, listen: false).updateList(
-                    Tags(
-                        cart: [],
-                        category: 'pant',
-                        color: '',
-                        sizes: '',
-                        weather_suitable: '',
-                        occasion: '',
-                        brand: ''),
-                    true),
-              },
-              child: Chip(
-                label: Text('Pants'),
-              ),
-            ),
-            SizedBox(
-              width: 25,
-            ),
+            )
           ],
         ),
         SizedBox(
