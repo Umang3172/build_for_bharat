@@ -8,6 +8,7 @@ class Tags {
   final String color;
   final String sizes;
   final String brand;
+  final String max_price;
   final List<Cart> cart;
 
   Tags(
@@ -17,6 +18,7 @@ class Tags {
       required this.weather_suitable,
       required this.cart,
       required this.color,
+      required this.max_price,
       required this.brand});
 
   factory Tags.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class Tags {
         sizes: json['size'] ?? '',
         weather_suitable: json['weather_suitable'] ?? '',
         color: json['color'] ?? '',
+        max_price: json['price'] ?? '',
         cart: List<Cart>.from(
             (json['cart'] ?? []).map((item) => Cart.fromJson(item))),
         brand: json['brand'] ?? '');

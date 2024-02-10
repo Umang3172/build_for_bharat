@@ -341,6 +341,7 @@ class _ChatPageState extends State<ChatPage> {
       return Tags(
           cart: [],
           category: '',
+          max_price: '',
           color: '',
           sizes: '',
           weather_suitable: '',

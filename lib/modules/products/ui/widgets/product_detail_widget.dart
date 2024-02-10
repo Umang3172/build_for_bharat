@@ -213,18 +213,13 @@ class CommentsTile extends StatelessWidget {
             ),
             SizedBox(
               height: ScreenUtil.sh * 0.1,
-              width: ScreenUtil.sw * 0.2,
+              width: ScreenUtil.sw * 0.3,
               child: ListView.separated(
-                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/tshirt_person_1.jpg'),
-                      ),
-                    ),
-                  );
+                  return Image.asset(
+                      height: 70, width: 100, 'images/tshirt_person_1.jpg');
                 },
                 separatorBuilder: (context, index) => SizedBox(
                   width: Gap.xxswg,
